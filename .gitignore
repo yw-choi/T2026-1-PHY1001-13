@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+package-lock.json
 
 # Build outputs
 dist/
@@ -8,22 +9,36 @@ dist/
 .venv/
 __pycache__/
 *.pyc
+*.pyo
 
 # Slidev
 .vite-inspect
 .remote-assets
 components.d.ts
 
+# PDF (ignore general PDFs but keep slides PDFs)
+*.pdf
+!slides/**/*.pdf
+
 # OS
 .DS_Store
 Thumbs.db
 
-# Editor
+# Editor / IDE
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
 
 # Local env
 *.local
+.env
+.env.*
 
+# Logs
+*.log
+npm-debug.log*
+
+# Textbook
 textbook/
