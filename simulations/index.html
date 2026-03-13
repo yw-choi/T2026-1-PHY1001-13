@@ -19,7 +19,23 @@
             text-align: center;
         }
         header h1 { font-size: 2em; margin-bottom: 8px; }
-        header p { font-size: 1.1em; opacity: 0.8; }
+        header p { font-size: 1.1em; opacity: 0.8; margin-bottom: 4px; }
+        header .back-home {
+            display: inline-block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85em;
+            padding: 4px 14px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        header .back-home:hover {
+            color: #fff;
+            border-color: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.1);
+        }
         header .header-credit {
             margin-top: 14px;
             font-size: 0.85em;
@@ -136,11 +152,29 @@
             font-size: 0.8em;
         }
     </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4VEF9JDEXP"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-4VEF9JDEXP");</script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VEF9JDEXP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-4VEF9JDEXP');
+        // 시뮬레이션 클릭 트래킹
+        document.addEventListener('click', function(e) {
+            var card = e.target.closest('a.card');
+            if (card) {
+                var title = card.querySelector('.card-title');
+                gtag('event', 'simulation_open', {
+                    simulation_name: title ? title.textContent : card.href,
+                    link_url: card.href
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
+        <a href="../index.html" class="back-home">&larr; PHY1001 홈</a>
         <h1>PHY1001 물리 시뮬레이션</h1>
         <p>일반물리학 웹 기반 인터랙티브 시뮬레이션 (Ch.02 ~ Ch.40)</p>
         <div class="header-credit">
@@ -151,7 +185,14 @@
     </header>
     <div class="container">
 
-        <div class="chapter-section">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+            <a href="#mechanics" style="padding:6px 14px;background:#1a1a2e;color:white;border-radius:6px;text-decoration:none;font-size:0.85em;">역학</a>
+            <a href="#waves" style="padding:6px 14px;background:#1a1a2e;color:white;border-radius:6px;text-decoration:none;font-size:0.85em;">파동 & 열역학</a>
+            <a href="#em" style="padding:6px 14px;background:#1a1a2e;color:white;border-radius:6px;text-decoration:none;font-size:0.85em;">전자기학</a>
+            <a href="#optics" style="padding:6px 14px;background:#1a1a2e;color:white;border-radius:6px;text-decoration:none;font-size:0.85em;">광학 & 현대물리</a>
+        </div>
+
+        <div class="chapter-section" id="mechanics">
             <h2>Ch.02 — 직선 운동</h2>
             <div class="grid">
                 <a class="card" href="01_freefall.html">
@@ -343,7 +384,7 @@
             </div>
         </div>
 
-        <div class="chapter-section">
+        <div class="chapter-section" id="waves">
             <h2>Ch.15 — 진동</h2>
             <div class="grid">
                 <a class="card" href="16_oscillation.html">
@@ -433,7 +474,7 @@
             </div>
         </div>
 
-        <div class="chapter-section">
+        <div class="chapter-section" id="em">
             <h2>Ch.21 — 쿨롱의 법칙</h2>
             <div class="grid">
                 <a class="card" href="22_coulomb.html">
@@ -628,7 +669,7 @@
             </div>
         </div>
 
-        <div class="chapter-section">
+        <div class="chapter-section" id="optics">
             <h2>Ch.34 — 상(Images)</h2>
             <div class="grid">
                 <a class="card" href="35_mirror_lens.html">

@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Slidev
+.vite-inspect
+.remote-assets
+components.d.ts
+
+# PDF (ignore general PDFs but keep slides and homework PDFs)
+*.pdf
+!slides/**/*.pdf
+!homeworks/**/*.pdf
+!syllabus/**/*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local env
+*.local
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Textbook, testbank, illustrations
+textbook/
+testbank/
+illustrations/
