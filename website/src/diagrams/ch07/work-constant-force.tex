@@ -1,0 +1,44 @@
+\input{../preamble.tex}
+\begin{document}
+\begin{tikzpicture}
+
+  % Ground
+  \fill[ground] (-1,-0.5) rectangle (10,0);
+  \draw[sggray, line width=2pt] (-1,0) -- (10,0);
+
+  % Block
+  \node[block, minimum width=1.6cm, minimum height=1.2cm] (block) at (2.5, 0.6) {};
+  \node[labelstyle, sggray] at (block.center) {$m$};
+
+  % Displacement vector (blue)
+  \draw[vecblue] (2.5, -0.3) -- (8, -0.3);
+  \node[labelstyle, sgblue, below] at (5.25, -0.4) {$\vec{d}$};
+
+  % Force vector (red, at angle phi)
+  \coordinate (fstart) at (3.3, 0.6);
+  \draw[vecred] (fstart) -- ++(35:4.5) coordinate (fend);
+  \node[labelstyle, sgred, above right=2pt] at (fend) {$\vec{F}$};
+
+  % Angle arc
+  \draw[sgred, line width=1.5pt] (fstart) ++(0:1) arc[start angle=0, end angle=35, radius=1];
+  \node[mathlabel, sgred] at ($(fstart) + (17.5:1.4)$) {$\phi$};
+
+  % Horizontal component (dashed projection)
+  \coordinate (fproj) at ($(fstart) + (0:{4.5*cos(35)})$);
+  \draw[auxline] (fend) -- (fproj);
+  \draw[auxline] (fstart) -- (fproj);
+
+  % F cos phi label
+  \draw[sgred, line width=1.5pt, -{Stealth[length=6pt,width=4pt]}] (fstart) -- (fproj);
+  \node[labelstyle, sgred, below=4pt] at ($(fstart)!0.5!(fproj)$) {$F\cos\phi$};
+
+  % F sin phi component (vertical)
+  \draw[auxline] (fproj) -- (fend);
+  \node[labelstyle, sggray, right=4pt] at ($(fproj)!0.5!(fend)$) {$F\sin\phi$};
+  \node[labelstyle, sggray, font=\sffamily\fontsize{11}{13}\selectfont, right=4pt] at ($(fproj)!0.5!(fend) + (0.2, -0.4)$) {(일을 하지 않음)};
+
+  % Formula
+  \node[titlestyle] at (5.5, -1.5) {$W = Fd\cos\phi = \vec{F}\cdot\vec{d}$};
+
+\end{tikzpicture}
+\end{document}

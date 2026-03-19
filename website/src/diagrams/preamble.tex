@@ -1,0 +1,26 @@
+% 공통 프리앰블: 서강대 PHY1001 다이어그램
+\documentclass[tikz,border=20pt]{standalone}
+\usepackage{kotex}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.pathmorphing, decorations.markings, patterns, calc, angles, quotes, positioning}
+
+% 서강대 색상 팔레트
+\definecolor{sgred}{HTML}{8B0029}
+\definecolor{sgblue}{HTML}{2563EB}
+\definecolor{sggray}{HTML}{6B7280}
+\definecolor{sglight}{HTML}{F3F4F6}
+
+% 공통 스타일
+\tikzset{
+  vec/.style={-{Stealth[length=8pt,width=5pt]}, line width=2.5pt},
+  vecred/.style={vec, sgred},
+  vecblue/.style={vec, sgblue},
+  auxline/.style={sggray, line width=1pt, dashed, dash pattern=on 4pt off 3pt},
+  block/.style={draw=sggray, line width=2pt, fill=sglight, minimum width=1.2cm, minimum height=1.2cm},
+  ground/.style={pattern=north east lines, pattern color=sggray!40},
+  labelstyle/.style={font=\sffamily\fontsize{14}{16}\selectfont},
+  mathlabel/.style={font=\sffamily\itshape\fontsize{14}{16}\selectfont},
+  titlestyle/.style={font=\sffamily\bfseries\fontsize{16}{18}\selectfont, sgred},
+  spring/.style={decorate, decoration={zigzag, segment length=6pt, amplitude=5pt}, line width=2pt, sggray},
+}

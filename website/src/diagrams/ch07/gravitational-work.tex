@@ -1,0 +1,60 @@
+\input{../preamble.tex}
+\begin{document}
+\begin{tikzpicture}
+
+  % === Left scene: 올라갈 때 ===
+  \begin{scope}[shift={(0,0)}]
+    % Title
+    \node[titlestyle] at (1.5, 5.5) {올라갈 때};
+
+    % Object
+    \draw[fill=sglight, draw=sggray, line width=2pt] (1.5, 2.5) circle (0.5);
+    \node[labelstyle, sggray] at (1.5, 2.5) {$m$};
+
+    % Displacement vector (blue, upward)
+    \draw[vecblue] (1.5, 3.2) -- (1.5, 5) coordinate (dup);
+    \node[labelstyle, sgblue, right=4pt] at (1.5, 4.1) {$\vec{d}$};
+
+    % Gravity vector (red, downward)
+    \draw[vecred] (1.5, 1.8) -- (1.5, 0.3);
+    \node[labelstyle, sgred, right=4pt] at (1.5, 1.0) {$\vec{F}_g$};
+
+    % Angle arc (180 degrees between d↑ and Fg↓)
+    \draw[sgred, line width=1.5pt] (1.5, 2.5) ++(90:0.9) arc[start angle=90, end angle=-90, radius=0.9];
+    \node[mathlabel, sgred, left=6pt] at (0.4, 2.5) {$\phi = 180°$};
+
+    % Result
+    \node[labelstyle, sgred, font=\sffamily\bfseries\fontsize{14}{16}\selectfont] at (1.5, -0.5) {$W_g = -mgd$};
+    \node[labelstyle, sggray, font=\sffamily\fontsize{12}{14}\selectfont] at (1.5, -1.1) {음의 일 (감속)};
+  \end{scope}
+
+  % Divider
+  \draw[sggray!30, line width=1pt, dashed] (4.5, -1.5) -- (4.5, 6);
+
+  % === Right scene: 내려올 때 ===
+  \begin{scope}[shift={(6,0)}]
+    % Title
+    \node[titlestyle] at (1.5, 5.5) {내려올 때};
+
+    % Object
+    \draw[fill=sglight, draw=sggray, line width=2pt] (1.5, 3.5) circle (0.5);
+    \node[labelstyle, sggray] at (1.5, 3.5) {$m$};
+
+    % Displacement vector (blue, downward)
+    \draw[vecblue] (1.5, 2.8) -- (1.5, 1.0);
+    \node[labelstyle, sgblue, right=4pt] at (1.5, 1.9) {$\vec{d}$};
+
+    % Gravity vector (red, downward)
+    \draw[vecred] (1.5, 3.5) ++(0, -0.7) -- ++(0, -1.5);
+    \node[labelstyle, sgred, left=4pt] at (0.8, 2.0) {$\vec{F}_g$};
+
+    % Small angle mark (phi = 0)
+    \node[mathlabel, sgred, right=12pt] at (2.0, 2.8) {$\phi = 0°$};
+
+    % Result
+    \node[labelstyle, sgblue, font=\sffamily\bfseries\fontsize{14}{16}\selectfont] at (1.5, -0.5) {$W_g = +mgd$};
+    \node[labelstyle, sggray, font=\sffamily\fontsize{12}{14}\selectfont] at (1.5, -1.1) {양의 일 (가속)};
+  \end{scope}
+
+\end{tikzpicture}
+\end{document}

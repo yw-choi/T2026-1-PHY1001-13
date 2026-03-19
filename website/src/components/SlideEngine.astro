@@ -93,7 +93,7 @@ const eraserSizes = [
   </div>
 
   <!-- Fixed bottom toolbar -->
-  <div id="controls" class="flex-shrink-0 bg-white border-t border-[#8B0029]/20" style="touch-action: auto;">
+  <div id="controls" class="flex-shrink-0 bg-white border-t border-[#8B0029]/20" style="touch-action: manipulation;">
     <div class="flex items-center justify-between px-3 py-1">
       <!-- Left: nav + tools -->
       <div class="flex items-center gap-0.5">
@@ -470,6 +470,9 @@ const eraserSizes = [
       scratchUpdateCounter();
     });
 
+    // --- Slide position persistence ---
+    const slidePositionKey = `${lectureKey}:currentSlide`;
+
     // --- Slide navigation ---
     function goTo(index: number) {
       if (index < 0 || index >= total) return;
@@ -481,6 +484,8 @@ const eraserSizes = [
       restoreDrawing();
       // Close scratch pad on slide change
       closeScratchPad();
+      // Persist current slide
+      try { sessionStorage.setItem(slidePositionKey, String(current)); } catch {}
     }
 
     function next() { goTo(current + 1); }
@@ -764,14 +769,20 @@ else if (e.key === 'd' || e.key === 'D') {
     canvas.addEventListener('touchmove', draw, { passive: false });
     canvas.addEventListener('touchend', stopDraw);
 
-    // Touch swipe navigation (when in click mode)
+    // Touch swipe navigation (when in click mode, single finger only)
     let touchStartX = 0;
+    let touchIsSingle = false;
     mainArea.addEventListener('touchstart', (e) => {
       if (drawMode !== 'none') return;
+      touchIsSingle = (e.touches.length === 1);
       touchStartX = e.touches[0].clientX;
     }, { passive: true });
+    mainArea.addEventListener('touchmove', (e) => {
+      // If more fingers appear during the gesture, cancel swipe
+      if (e.touches.length > 1) touchIsSingle = false;
+    }, { passive: true });
     mainArea.addEventListener('touchend', (e) => {
-      if (drawMode !== 'none') return;
+      if (drawMode !== 'none' || !touchIsSingle) return;
       const dx = e.changedTouches[0].clientX - touchStartX;
       if (Math.abs(dx) > 60) {
         if (dx < 0) next(); else prev();
@@ -862,8 +873,21 @@ else if (e.key === 'd' || e.key === 'D') {
     // Init
     resizeCanvas();
     setEraserSize(30);
-    counter.textContent = `1 / ${total}`;
     setPenColor('#ef4444');
+
+    // Restore saved slide position
+    try {
+      const saved = sessionStorage.getItem(slidePositionKey);
+      if (saved) {
+        const idx = parseInt(saved, 10);
+        if (idx >= 0 && idx < total) {
+          slidesEl[current].style.display = 'none';
+          current = idx;
+          slidesEl[current].style.display = 'flex';
+        }
+      }
+    } catch {}
+    counter.textContent = `${current + 1} / ${total}`;
 
     // Restore drawings from IndexedDB
     openDB().then(async () => {
@@ -882,28 +906,6 @@ else if (e.key === 'd' || e.key === 'D') {
       }
     }).catch(() => {});
 
-    // KaTeX rendering
-    const renderMath = () => {
-      if (typeof (window as any).katex === 'undefined') return;
-      const katex = (window as any).katex;
-
-      document.querySelectorAll('.slide-content').forEach((el) => {
-        el.innerHTML = el.innerHTML.replace(/\$\$([\s\S]*?)\$\$/g, (_: string, tex: string) => {
-          try {
-            return katex.renderToString(tex.trim(), { displayMode: true, throwOnError: false });
-          } catch { return tex; }
-        });
-        el.innerHTML = el.innerHTML.replace(/\$([^\$\n]+?)\$/g, (_: string, tex: string) => {
-          try {
-            return katex.renderToString(tex.trim(), { displayMode: false, throwOnError: false });
-          } catch { return tex; }
-        });
-      });
-    };
-
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
-    script.onload = renderMath;
-    document.head.appendChild(script);
+    // KaTeX is now rendered server-side in [id].astro
   });
 </script>

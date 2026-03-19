@@ -1,0 +1,113 @@
+\input{../preamble.tex}
+\begin{document}
+\begin{tikzpicture}
+
+  % === (a) 평형 상태 ===
+  \begin{scope}[shift={(0, 8)}]
+    \node[labelstyle, sggray, font=\sffamily\bfseries] at (-1.2, 0.6) {(a)};
+
+    % Wall
+    \fill[ground] (-0.5, -0.4) rectangle (0, 1.2);
+    \draw[sggray, line width=2pt] (0, -0.4) -- (0, 1.2);
+
+    % Spring (relaxed)
+    \draw[spring] (0, 0.4) -- (3.5, 0.4);
+
+    % Block at x=0
+    \node[block, minimum width=1.2cm, minimum height=1.0cm] (b1) at (4.1, 0.4) {};
+    \node[labelstyle, sggray, font=\sffamily\fontsize{12}{14}\selectfont] at (b1.center) {$m$};
+
+    % x-axis
+    \draw[sggray, line width=1pt, -{Stealth[length=6pt]}] (-0.3, -0.7) -- (8, -0.7);
+    \node[mathlabel, sggray] at (8.3, -0.7) {$x$};
+
+    % Origin mark
+    \draw[sggray, line width=1pt] (4.1, -0.5) -- (4.1, -0.9);
+    \node[labelstyle, sggray] at (4.1, -1.2) {$0$};
+
+    % Label
+    \node[labelstyle, sgred, font=\sffamily\fontsize{13}{15}\selectfont] at (6.5, 0.4) {평형 상태, $F_s = 0$};
+  \end{scope}
+
+  % === (b) 늘어난 상태 (x > 0) ===
+  \begin{scope}[shift={(0, 4)}]
+    \node[labelstyle, sggray, font=\sffamily\bfseries] at (-1.2, 0.6) {(b)};
+
+    % Wall
+    \fill[ground] (-0.5, -0.4) rectangle (0, 1.2);
+    \draw[sggray, line width=2pt] (0, -0.4) -- (0, 1.2);
+
+    % Spring (stretched)
+    \draw[spring, decoration={segment length=9pt}] (0, 0.4) -- (5, 0.4);
+
+    % Block at x > 0
+    \node[block, minimum width=1.2cm, minimum height=1.0cm] (b2) at (5.6, 0.4) {};
+    \node[labelstyle, sggray, font=\sffamily\fontsize{12}{14}\selectfont] at (b2.center) {$m$};
+
+    % Force arrow (left, restoring)
+    \draw[vecred] (4.95, 0.4) -- (3.5, 0.4);
+    \node[labelstyle, sgred, above=3pt] at (4.2, 0.5) {$\vec{F}_s$};
+
+    % Displacement arrow (blue, from 0 to block)
+    \draw[vecblue] (4.1, -0.3) -- (5.6, -0.3);
+    \node[labelstyle, sgblue, below=2pt] at (4.85, -0.4) {$\vec{d}$};
+
+    % x-axis
+    \draw[sggray, line width=1pt, -{Stealth[length=6pt]}] (-0.3, -0.7) -- (8, -0.7);
+    \node[mathlabel, sggray] at (8.3, -0.7) {$x$};
+
+    % Equilibrium dashed line
+    \draw[auxline] (4.1, -0.5) -- (4.1, 1.2);
+    \node[labelstyle, sggray] at (4.1, -1.2) {$0$};
+
+    % x position mark
+    \draw[sggray, line width=1pt] (5.6, -0.5) -- (5.6, -0.9);
+    \node[labelstyle, sgblue] at (5.6, -1.2) {$x > 0$};
+
+    % Label
+    \node[labelstyle, sgred, font=\sffamily\fontsize{13}{15}\selectfont] at (7, 1.1) {$F_s = -kx$ (복원력)};
+    \node[labelstyle, sggray, font=\sffamily\fontsize{11}{13}\selectfont] at (7, 0.5) {← 평형 쪽으로};
+  \end{scope}
+
+  % === (c) 압축된 상태 (x < 0) ===
+  \begin{scope}[shift={(0, 0)}]
+    \node[labelstyle, sggray, font=\sffamily\bfseries] at (-1.2, 0.6) {(c)};
+
+    % Wall
+    \fill[ground] (-0.5, -0.4) rectangle (0, 1.2);
+    \draw[sggray, line width=2pt] (0, -0.4) -- (0, 1.2);
+
+    % Spring (compressed)
+    \draw[spring, decoration={segment length=3.5pt}] (0, 0.4) -- (2.0, 0.4);
+
+    % Block at x < 0
+    \node[block, minimum width=1.2cm, minimum height=1.0cm] (b3) at (2.6, 0.4) {};
+    \node[labelstyle, sggray, font=\sffamily\fontsize{12}{14}\selectfont] at (b3.center) {$m$};
+
+    % Force arrow (right, restoring)
+    \draw[vecred] (3.25, 0.4) -- (4.7, 0.4);
+    \node[labelstyle, sgred, above=3pt] at (4.0, 0.5) {$\vec{F}_s$};
+
+    % Displacement arrow (blue, from 0 to block, leftward)
+    \draw[vecblue] (4.1, -0.3) -- (2.6, -0.3);
+    \node[labelstyle, sgblue, below=2pt] at (3.35, -0.4) {$\vec{d}$};
+
+    % x-axis
+    \draw[sggray, line width=1pt, -{Stealth[length=6pt]}] (-0.3, -0.7) -- (8, -0.7);
+    \node[mathlabel, sggray] at (8.3, -0.7) {$x$};
+
+    % Equilibrium dashed line
+    \draw[auxline] (4.1, -0.5) -- (4.1, 1.2);
+    \node[labelstyle, sggray] at (4.1, -1.2) {$0$};
+
+    % x position mark
+    \draw[sggray, line width=1pt] (2.6, -0.5) -- (2.6, -0.9);
+    \node[labelstyle, sgblue] at (2.6, -1.2) {$x < 0$};
+
+    % Label
+    \node[labelstyle, sgred, font=\sffamily\fontsize{13}{15}\selectfont] at (7, 1.1) {$F_s = -kx$ (복원력)};
+    \node[labelstyle, sggray, font=\sffamily\fontsize{11}{13}\selectfont] at (7, 0.5) {→ 평형 쪽으로};
+  \end{scope}
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,57 @@
+\input{../preamble.tex}
+\begin{document}
+\begin{tikzpicture}
+
+  % Axes
+  \draw[sggray, line width=2pt, -{Stealth[length=8pt]}] (0, 0) -- (10, 0);
+  \draw[sggray, line width=2pt, -{Stealth[length=8pt]}] (0, 0) -- (0, 6);
+  \node[labelstyle, sggray] at (10, -0.5) {위치 $x$};
+  \node[labelstyle, sggray, rotate=90] at (-0.7, 3) {$F(x)$};
+
+  % Define curve: F(x) as a smooth curve
+  % Points: (1,1) (2,2.2) (3,3.5) (4,4.5) (5,4.8) (6,4.5) (7,3.8) (8,3.0)
+  % x_i = 1.5, x_f = 7.5
+
+  % Shaded area under curve from x_i to x_f
+  \fill[sgblue, opacity=0.15]
+    (1.5, 0) -- (1.5, 1.55)
+    .. controls (2, 2.2) and (2.5, 3.0) ..  (3, 3.5)
+    .. controls (3.5, 4.0) and (4, 4.4) ..  (4.5, 4.7)
+    .. controls (5, 4.85) and (5.5, 4.75) .. (6, 4.5)
+    .. controls (6.5, 4.15) and (7, 3.8) ..  (7.5, 3.4)
+    -- (7.5, 0) -- cycle;
+
+  % Riemann sum strips (left portion, x=1.5 to 3.5)
+  \foreach \xl/\yl in {1.5/1.55, 2.2/2.5, 2.9/3.3} {
+    \draw[sggray, line width=0.8pt, fill=sgblue, fill opacity=0.08]
+      (\xl, 0) rectangle (\xl+0.7, \yl);
+  }
+
+  % Main curve (red)
+  \draw[sgred, line width=2.5pt]
+    (0.5, 0.5)
+    .. controls (1, 1.0) and (1.5, 1.5) .. (2, 2.2)
+    .. controls (2.5, 3.0) and (3, 3.5) ..  (3.5, 4.0)
+    .. controls (4, 4.4) and (4.5, 4.7) ..  (5, 4.85)
+    .. controls (5.5, 4.75) and (6, 4.5) .. (6.5, 4.15)
+    .. controls (7, 3.8) and (7.5, 3.4) ..  (8, 3.0)
+    .. controls (8.5, 2.6) and (9, 2.3) ..  (9.3, 2.1);
+
+  % Curve label
+  \node[labelstyle, sgred, above right=2pt] at (9.0, 2.2) {$F(x)$};
+
+  % x_i and x_f markers
+  \draw[auxline] (1.5, 0) -- (1.5, 1.55);
+  \draw[auxline] (7.5, 0) -- (7.5, 3.4);
+  \node[mathlabel, sggray, below=4pt] at (1.5, 0) {$x_i$};
+  \node[mathlabel, sggray, below=4pt] at (7.5, 0) {$x_f$};
+
+  % Integral label (in shaded area)
+  \node[titlestyle, font=\sffamily\bfseries\fontsize{18}{20}\selectfont] at (4.8, 1.8) {$W = \displaystyle\int_{x_i}^{x_f} F(x)\, dx$};
+
+  % Riemann sum annotation
+  \draw[sggray, line width=1pt, -{Stealth[length=5pt]}] (2.0, -1.0) -- (2.0, -0.15);
+  \node[labelstyle, sggray, font=\sffamily\fontsize{12}{14}\selectfont] at (3.2, -1.0) {$\Delta W_j \approx F(x_j)\,\Delta x$};
+
+\end{tikzpicture}
+\end{document}
