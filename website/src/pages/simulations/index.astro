@@ -1,60 +1,73 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { simulations, simulationGroups, legacySimulations } from '../../data/simulations';
+import katex from 'katex';
 
 const base = import.meta.env.BASE_URL;
 
-const simulations = [
-  { id: 'freefall', file: 'freefall.html', title: '자유 낙하', chapter: 2, description: '중력 가속도에 의한 자유 낙하 운동' },
-  { id: 'projectile', file: 'projectile.html', title: '포물체 운동', chapter: 4, description: '발사각과 초기 속도에 따른 포물선 궤적' },
-  { id: 'circular', file: 'circular_motion.html', title: '등속 원운동', chapter: 4, description: '구심 가속도와 등속 원운동' },
-  { id: 'newton2', file: 'newton_second_law.html', title: '뉴턴 제2법칙', chapter: 5, description: 'F=ma 시각화' },
-  { id: 'atwood', file: 'atwood.html', title: '앳우드 기계', chapter: 5, description: '도르래와 두 물체의 운동' },
-  { id: 'inclined', file: 'inclined_plane.html', title: '경사면', chapter: 6, description: '경사면 위의 물체와 마찰력' },
-  { id: 'energy', file: 'energy_conservation.html', title: '에너지 보존', chapter: 8, description: '역학적 에너지 보존 법칙' },
-  { id: 'collision', file: 'collision.html', title: '충돌', chapter: 9, description: '탄성 및 비탄성 충돌' },
-  { id: 'rotation', file: 'rotation.html', title: '회전 운동', chapter: 10, description: '회전 변수와 토크' },
-  { id: 'rolling', file: 'rolling.html', title: '굴림 운동', chapter: 11, description: '병진 + 회전 결합 운동' },
-  { id: 'gravity', file: 'gravity_orbit.html', title: '중력과 궤도', chapter: 13, description: '만유인력과 위성 궤도' },
-  { id: 'fluids', file: 'fluids.html', title: '유체', chapter: 14, description: '파스칼, 아르키메데스 원리' },
-  { id: 'oscillation', file: 'oscillation.html', title: '단순조화운동', chapter: 15, description: '용수철과 진자의 진동' },
-  { id: 'wave', file: 'wave.html', title: '파동', chapter: 16, description: '가로파와 파동 방정식' },
-  { id: 'standing', file: 'standing_wave.html', title: '정상파', chapter: 17, description: '정상파와 공명' },
-  { id: 'heat', file: 'heat.html', title: '열역학', chapter: 18, description: '열전달과 열역학 제1법칙' },
-  { id: 'gas', file: 'ideal_gas.html', title: '이상기체', chapter: 19, description: '이상기체와 분자 운동' },
-  { id: 'carnot', file: 'carnot.html', title: '카르노 기관', chapter: 20, description: '카르노 순환과 열효율' },
-];
+function renderMath(text: string): string {
+  return text.replace(/\$([^$]+)\$/g, (_, expr) =>
+    katex.renderToString(expr, { throwOnError: false })
+  );
+}
 
-// Group by chapter range
-const groups = [
-  { label: '역학 I (1-5장)', sims: simulations.filter(s => s.chapter <= 5) },
-  { label: '역학 II (6-11장)', sims: simulations.filter(s => s.chapter >= 6 && s.chapter <= 11) },
-  { label: '역학 III (12-14장)', sims: simulations.filter(s => s.chapter >= 12 && s.chapter <= 14) },
-  { label: '파동 & 열 (15-20장)', sims: simulations.filter(s => s.chapter >= 15) },
-];
+const groups = simulationGroups
+  .map((g) => ({ label: g.label, sims: simulations.filter(g.filter) }))
+  .filter((g) => g.sims.length > 0);
+
+// Group legacy simulations by category
+const legacyCategories = [...new Set(legacySimulations.map((s) => s.category))];
+const legacyGroups = legacyCategories.map((cat) => ({
+  label: cat,
+  sims: legacySimulations.filter((s) => s.category === cat),
+}));
 ---
 
 <BaseLayout title="시뮬레이션">
   <section class="max-w-5xl mx-auto px-4 py-10">
     <h1 class="text-3xl font-bold mb-2 text-[var(--sogang-red)]">물리 시뮬레이션</h1>
-    <p class="text-gray-500 mb-8">클릭하면 시뮬레이션이 새 탭에서 열립니다.</p>
+    <p class="text-gray-500 mb-8">파라미터를 조절하며 물리 현상을 직접 탐구해 보세요.</p>
 
-    {groups.map((group) => group.sims.length > 0 && (
+    {groups.map((group) => (
       <div class="mb-10">
         <h2 class="text-xl font-bold mb-4 text-[var(--sogang-red)]">{group.label}</h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {group.sims.map((sim) => (
             <a
-              href={`${base}simulations/${sim.file}`}
-              target="_blank"
+              href={`${base}simulations/${sim.id}/`}
               class="bg-white rounded-xl shadow-sm border border-[#8B0029]/10 p-4 hover:shadow-md hover:border-[#8B0029]/30 transition-all block"
             >
               <div class="text-xs text-[var(--sogang-red)] mb-1">{sim.chapter}장</div>
               <h3 class="font-bold text-base">{sim.title}</h3>
-              <p class="text-sm text-gray-500 mt-1">{sim.description}</p>
+              <p class="text-sm text-gray-500 mt-1" set:html={renderMath(sim.description)} />
             </a>
           ))}
         </div>
       </div>
     ))}
+
+    <!-- 레거시 시뮬레이션 -->
+    <hr class="my-10 border-gray-200" />
+    <div>
+      <h2 class="text-2xl font-bold mb-2 text-gray-500">이전 시뮬레이션</h2>
+      <p class="text-sm text-gray-400 mb-6">일반물리 I·II 전 범위의 시뮬레이션입니다.</p>
+
+      {legacyGroups.map((group) => (
+        <div class="mb-8">
+          <h3 class="text-lg font-bold mb-3 text-gray-500">{group.label}</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {group.sims.map((sim) => (
+              <a
+                href={`${base}simulations/legacy/${sim.file}`}
+                target="_blank"
+                class="bg-gray-50 rounded-lg border border-gray-200 p-3 hover:shadow-sm hover:border-[#8B0029]/30 transition-all block"
+              >
+                <h4 class="font-medium text-sm">{sim.title}</h4>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   </section>
 </BaseLayout>

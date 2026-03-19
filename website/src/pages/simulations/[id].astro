@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { simulations } from '../../data/simulations';
+import katex from 'katex';
+
+export function getStaticPaths() {
+  return simulations.map((sim) => ({
+    params: { id: sim.id },
+    props: { sim },
+  }));
+}
+
+const { sim } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+function renderMath(text: string): string {
+  return text.replace(/\$([^$]+)\$/g, (_, expr) =>
+    katex.renderToString(expr, { throwOnError: false })
+  );
+}
+---
+
+<BaseLayout title={sim.title}>
+  <section class="max-w-6xl mx-auto px-4 py-6">
+    <div class="flex items-center gap-3 mb-4">
+      <a href={`${base}simulations/`} class="text-[var(--sogang-red)] hover:underline text-sm">&larr; 시뮬레이션 목록</a>
+      <span class="text-gray-300">|</span>
+      <span class="text-xs text-gray-500">{sim.chapter}장</span>
+      <h1 class="text-xl font-bold text-[var(--sogang-red)]">{sim.title}</h1>
+    </div>
+    <p class="text-gray-500 text-sm mb-4" set:html={renderMath(sim.description)} />
+    <div class="rounded-xl border border-gray-200 overflow-hidden" style="height: 80vh;">
+      <iframe
+        src={`${base}simulations/${sim.file}`}
+        class="w-full h-full border-0"
+        title={sim.title}
+      ></iframe>
+    </div>
+  </section>
+</BaseLayout>

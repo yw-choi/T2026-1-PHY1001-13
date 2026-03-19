@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://yw-choi.github.io',
-  base: '/2026-PHY1001-13/',
+  base: '/PHY1001/',
   devToolbar: { enabled: false },
   vite: {
     plugins: [tailwindcss()],

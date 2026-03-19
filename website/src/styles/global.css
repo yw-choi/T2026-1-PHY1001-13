@@ -13,21 +13,21 @@
 
 /* ===== 슬라이드 콘텐츠 스타일 ===== */
 .slide-content h1 {
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 0.5em;
   color: var(--sg-red);
 }
 
 .slide-content h2 {
-  font-size: 1.7rem;
+  font-size: 2.0rem;
   font-weight: 600;
   margin-bottom: 0.4em;
   color: var(--sg-red-light);
 }
 
 .slide-content h3 {
-  font-size: 1.3rem;
+  font-size: 1.55rem;
   font-weight: 600;
   margin-bottom: 0.4em;
   color: var(--sg-red);
@@ -47,13 +47,13 @@
 
 .slide-content li {
   margin: 0.3em 0;
-  font-size: 1.15rem;
+  font-size: 1.38rem;
   line-height: 1.7;
 }
 
 .slide-content p {
   margin: 0.4em 0;
-  font-size: 1.15rem;
+  font-size: 1.38rem;
   line-height: 1.7;
 }
 

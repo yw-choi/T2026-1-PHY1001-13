@@ -3,6 +3,7 @@ import SlideLayout from '../../layouts/SlideLayout.astro';
 import SlideEngine from '../../components/SlideEngine.astro';
 import { getCollection } from 'astro:content';
 import { marked } from 'marked';
+import katex from 'katex';
 
 export async function getStaticPaths() {
   const lectures = await getCollection('lectures');
@@ -38,12 +39,16 @@ const slides = await Promise.all(
         </div>`;
       }
       // Render markdown content for the blank page (shown at top)
-      const mathBlocks: string[] = [];
+      const mathBlocks: { tex: string; display: boolean }[] = [];
       const esc = content
-        .replace(/\$\$[\s\S]*?\$\$/g, (m) => { mathBlocks.push(m); return `%%MATH${mathBlocks.length - 1}%%`; })
-        .replace(/\$[^$\n]+?\$/g, (m) => { mathBlocks.push(m); return `%%MATH${mathBlocks.length - 1}%%`; });
+        .replace(/\$\$([\s\S]*?)\$\$/g, (_, tex) => { mathBlocks.push({ tex, display: true }); return `%%MATH${mathBlocks.length - 1}%%`; })
+        .replace(/\$([^\$\n]+?)\$/g, (_, tex) => { mathBlocks.push({ tex, display: false }); return `%%MATH${mathBlocks.length - 1}%%`; });
       let rendered = String(await marked.parse(esc));
-      rendered = rendered.replace(/%%MATH(\d+)%%/g, (_, i) => mathBlocks[parseInt(i)]);
+      rendered = rendered.replace(/%%MATH(\d+)%%/g, (_, i) => {
+        const { tex, display } = mathBlocks[parseInt(i)];
+        try { return katex.renderToString(tex.trim(), { displayMode: display, throwOnError: false }); }
+        catch { return tex; }
+      });
       return `<div class="w-full h-full flex flex-col" data-blank="true">
         <div class="slide-content px-4 pt-2 pb-1 border-b border-gray-200" style="font-size:0.95rem">${rendered}</div>
       </div>`;
@@ -61,21 +66,28 @@ const slides = await Promise.all(
 
     // Protect LaTeX math from markdown parsing:
     // Replace $...$ and $$...$$ with placeholders before marked processes them
-    const mathBlocks: string[] = [];
+    const mathBlocks: { tex: string; display: boolean }[] = [];
     const escaped = md
-      .replace(/\$\$[\s\S]*?\$\$/g, (m) => {
-        mathBlocks.push(m);
+      .replace(/\$\$([\s\S]*?)\$\$/g, (_, tex) => {
+        mathBlocks.push({ tex, display: true });
         return `%%MATH${mathBlocks.length - 1}%%`;
       })
-      .replace(/\$[^$\n]+?\$/g, (m) => {
-        mathBlocks.push(m);
+      .replace(/\$([^\$\n]+?)\$/g, (_, tex) => {
+        mathBlocks.push({ tex, display: false });
         return `%%MATH${mathBlocks.length - 1}%%`;
       });
 
     let html = String(await marked.parse(escaped));
 
-    // Restore math blocks
-    html = html.replace(/%%MATH(\d+)%%/g, (_, i) => mathBlocks[parseInt(i)]);
+    // Render math server-side with KaTeX (avoids innerHTML < escaping issues)
+    html = html.replace(/%%MATH(\d+)%%/g, (_, i) => {
+      const { tex, display } = mathBlocks[parseInt(i)];
+      try {
+        return katex.renderToString(tex.trim(), { displayMode: display, throwOnError: false });
+      } catch {
+        return tex;
+      }
+    });
 
     // Prepend base URL to absolute image paths
     return html.replace(/src="\/img\//g, `src="${base}img/`);

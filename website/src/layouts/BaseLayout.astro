@@ -19,18 +19,21 @@ const base = import.meta.env.BASE_URL;
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
     />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VEF9JDEXP"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-4VEF9JDEXP');
+    </script>
   </head>
   <body class="min-h-screen bg-white text-gray-900">
     <nav class="bg-[var(--sogang-red)] text-white shadow-lg">
-      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center">
         <a href={`${base}`} class="text-lg font-bold hover:opacity-90">
           일반물리 I
         </a>
-        <div class="flex gap-6 text-sm">
-          <a href={`${base}lectures/`} class="hover:opacity-80">강의</a>
-          <a href={`${base}homework/`} class="hover:opacity-80">숙제</a>
-          <a href={`${base}simulations/`} class="hover:opacity-80">시뮬레이션</a>
-        </div>
+        <span class="ml-3 text-sm opacity-70">PHY1001-13 · 2026-1</span>
       </div>
     </nav>
 
@@ -39,7 +42,8 @@ const base = import.meta.env.BASE_URL;
     </main>
 
     <footer class="mt-16 py-6 bg-[#f9f2f4] text-center text-sm text-[var(--sogang-red)]/60">
-      <p>서강대학교 물리학과 · 일반물리 I (PHY1001) · 2026년 1학기</p>
+      <p>서강대학교 물리학과 · 일반물리 I (PHY1001-13) · 2026년 1학기</p>
+      <p class="mt-1"><a href="https://yw-choi.github.io" class="hover:underline">최영우</a></p>
     </footer>
   </body>
 </html>
