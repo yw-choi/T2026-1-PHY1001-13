@@ -24,13 +24,11 @@ const chapterTitles: Record<number, string> = {
   8: '퍼텐셜에너지와 보존',
   9: '질량중심과 선운동량',
   10: '회전',
+  11: '구름·돌림힘·각운동량',
+  12: '평형과 탄성',
 };
 
 // --- Lecture data ---
-const pdfLectureMap = new Map<number, string>([
-  [1, 'ch01.pdf'], [2, 'ch02.pdf'], [3, 'ch03.pdf'], [4, 'ch04.pdf'], [5, 'ch05.pdf'],
-]);
-
 // Slide lectures from content collection
 const allSlideLectures = await getCollection('lectures');
 const slideLecByChapter = new Map<number, { id: string }[]>();
@@ -46,15 +44,22 @@ for (const lec of allSlideLectures) {
 // --- Homework chapters (1-10) ---
 const hwChapters = new Set(Array.from({ length: 10 }, (_, i) => i + 1));
 
+// --- Simulations by chapter ---
+const simsByChapter = new Map<number, typeof simulations>();
+for (const sim of simulations) {
+  if (!simsByChapter.has(sim.chapter)) simsByChapter.set(sim.chapter, []);
+  simsByChapter.get(sim.chapter)!.push(sim);
+}
+
 // --- Build chapter cards ---
-const maxCh = 10;
+const maxCh = 12;
 const chapters = Array.from({ length: maxCh }, (_, i) => {
   const ch = i + 1;
   return {
     ch,
     title: chapterTitles[ch] || '',
-    pdfFile: pdfLectureMap.get(ch),
     slides: slideLecByChapter.get(ch) || [],
+    sims: simsByChapter.get(ch) || [],
     hasHomework: hwChapters.has(ch),
   };
 });
@@ -151,7 +156,7 @@ const legacyGroups = legacyCategories.map((cat) => ({
       </div>
 
       <!-- 챕터 카드 -->
-      {chapters.map(({ ch, title, pdfFile, slides, hasHomework }) => (
+      {chapters.map(({ ch, title, slides, hasHomework }) => (
         <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#8B0029]/25 transition-all">
           <div class="border-l-4 border-[#8B0029] px-4 py-4">
             <p class="text-sm font-bold mb-3">
@@ -159,12 +164,6 @@ const legacyGroups = legacyCategories.map((cat) => ({
               <span class="text-gray-800">{title}</span>
             </p>
             <div class="flex flex-wrap gap-2">
-              {pdfFile && (
-                <a href={`${base}slides/${pdfFile}`} target="_blank"
-                  class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-[#8B0029]/8 text-[#8B0029] hover:bg-[#8B0029]/18 transition-colors">
-                  강의자료
-                </a>
-              )}
               {slides.map((sl) => (
                 <a href={`${base}lectures/${sl.id}/`}
                   class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-[#8B0029]/8 text-[#8B0029] hover:bg-[#8B0029]/18 transition-colors">
@@ -201,18 +200,22 @@ const legacyGroups = legacyCategories.map((cat) => ({
   <section class="max-w-4xl mx-auto px-4 pb-14">
     <h2 class="text-2xl font-bold text-[var(--sogang-red)] mb-5">시뮬레이션</h2>
 
-    <div class="grid sm:grid-cols-2 gap-4">
-      {simulations.map((sim) => (
-        <a href={`${base}simulations/${sim.id}/`}
-          class="group block bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md hover:border-[#8B0029]/25 transition-all">
-          <div class="border-l-4 border-[#8B0029] px-5 py-4">
-            <p class="text-xs font-bold text-[#8B0029] mb-1">{sim.chapter}장 · {chapterTitles[sim.chapter]}</p>
-            <h3 class="text-base font-bold mb-2 group-hover:text-[#8B0029] transition-colors">{sim.title}</h3>
-            <p class="text-sm text-gray-500 leading-relaxed" set:html={renderMath(sim.description)} />
-          </div>
-        </a>
-      ))}
-    </div>
+    {Array.from(simsByChapter.entries()).sort((a, b) => a[0] - b[0]).map(([ch, chSims]) => (
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-[#8B0029] mb-3">{ch}장 · {chapterTitles[ch]}</h3>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {chSims.map((sim) => (
+            <a href={`${base}simulations/${sim.id}/`}
+              class="group block bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md hover:border-[#8B0029]/25 transition-all">
+              <div class="border-l-4 border-[#8B0029] px-5 py-3">
+                <h3 class="text-sm font-bold mb-1 group-hover:text-[#8B0029] transition-colors">{sim.title}</h3>
+                <p class="text-xs text-gray-500 leading-relaxed" set:html={renderMath(sim.description)} />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
   </section>
 
   <!-- 이전 시뮬레이션 -->

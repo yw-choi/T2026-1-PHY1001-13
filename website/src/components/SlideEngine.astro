@@ -620,14 +620,13 @@ const eraserSizes = [
       eraserCursor.style.top = `${clientY - eraserSize / 2}px`;
     }
 
-    // Palm rejection
+    // Touch filter: allow single-finger and stylus, reject multi-touch (palm)
     function isStylusTouch(e: MouseEvent | TouchEvent): boolean {
-      if ('touches' in e && e.touches.length > 0) {
-        const touch = e.touches[0] as any;
-        if (touch.touchType !== undefined) return touch.touchType === 'stylus';
-        return true;
+      if ('touches' in e) {
+        if (e.touches.length > 1) return false; // reject multi-touch
+        return true; // allow single finger or stylus
       }
-      return true;
+      return true; // mouse
     }
 
     function startDraw(e: MouseEvent | TouchEvent) {
