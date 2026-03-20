@@ -47,3 +47,7 @@ textbook/
 testbank/
 illustrations/
 gh-pages/
+
+# Playwright
+website/e2e-results/
+website/e2e-report/
