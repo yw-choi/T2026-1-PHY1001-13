@@ -38,12 +38,12 @@
     <tspan font-style="italic">a</tspan><tspan font-size="9" baseline-shift="sub">t</tspan> = <tspan font-style="italic">&#x3B1;r</tspan>
   </text>
 
-  <!-- Radial acceleration ar (pointing inward) -->
-  <line x1="403" y1="134" x2="325" y2="178" stroke="#8B0029" stroke-width="2.5" marker-end="url(#arr-red)"/>
-  <text x="315" y="175" font-size="13" fill="#8B0029">
+  <!-- Radial acceleration ar (pointing inward toward center O) -->
+  <line x1="403" y1="134" x2="330" y2="185" stroke="#8B0029" stroke-width="2.5" marker-end="url(#arr-red)"/>
+  <text x="300" y="190" font-size="13" fill="#8B0029">
     <tspan font-style="italic">a</tspan><tspan font-size="9" baseline-shift="sub">r</tspan> = <tspan font-style="italic">&#x3C9;</tspan>&#xB2;<tspan font-style="italic">r</tspan>
   </text>
-  <text x="315" y="192" font-size="13" fill="#8B0029">(구심)</text>
+  <text x="300" y="207" font-size="13" fill="#8B0029">(구심)</text>
 
   <!-- Angular velocity ω -->
   <path d="M 320 275 A 50 50 0 0 0 240 275" fill="none" stroke="#8B0029" stroke-width="2" marker-end="url(#arr-red)"/>
