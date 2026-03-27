@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import katex from 'katex';
+
+export async function getStaticPaths() {
+  const lectures = await getCollection('lectures');
+  return lectures.map((lecture) => ({
+    params: { id: lecture.id },
+    props: { lecture },
+  }));
+}
+
+const { lecture } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const rawContent = lecture.body || '';
+const slideTexts = rawContent
+  .split(/\n---\n/)
+  .map((s: string) => s.trim())
+  .filter((s: string) => s.length > 0);
+
+// Render each slide, skipping blanks and replacing sims with placeholders
+const slides: string[] = [];
+for (const md of slideTexts) {
+  // Skip blank slides
+  const blankMatch = md.match(/<!--\s*blank\s*-->/);
+  if (blankMatch) {
+    const content = md.replace(/<!--\s*blank\s*-->/, '').trim();
+    if (!content) continue; // pure blank → skip
+  }
+
+  // Simulation → placeholder
+  const simMatch = md.match(/<!--\s*sim:\s*(\S+)\s*-->/);
+  if (simMatch) {
+    const caption = md.replace(/<!--\s*sim:\s*\S+\s*-->/, '').trim();
+    slides.push(`<div class="sim-placeholder">
+      <p>시뮬레이션${caption ? ': ' + caption : ''}</p>
+    </div>`);
+    continue;
+  }
+
+  // Normal slide: parse markdown + KaTeX
+  const mathBlocks: { tex: string; display: boolean }[] = [];
+  const escaped = md
+    .replace(/\$\$([\s\S]*?)\$\$/g, (_, tex) => {
+      mathBlocks.push({ tex, display: true });
+      return `%%MATH${mathBlocks.length - 1}%%`;
+    })
+    .replace(/\$([^\$\n]+?)\$/g, (_, tex) => {
+      mathBlocks.push({ tex, display: false });
+      return `%%MATH${mathBlocks.length - 1}%%`;
+    });
+
+  let html = String(await marked.parse(escaped));
+  html = html.replace(/%%MATH(\d+)%%/g, (_, i) => {
+    const { tex, display } = mathBlocks[parseInt(i)];
+    try {
+      return katex.renderToString(tex.trim(), { displayMode: display, throwOnError: false });
+    } catch {
+      return tex;
+    }
+  });
+
+  // Prepend base URL to absolute image paths
+  html = html.replace(/src="\/img\//g, `src="${base}img/`);
+  slides.push(html);
+}
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{lecture.data.title} (인쇄용) | 일반물리 I</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+    <style is:global>
+      @import '../../../styles/global.css';
+    </style>
+    <style>
+      body {
+        background: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      .print-slide {
+        page-break-after: always;
+        min-height: 100vh;
+        padding: 40px 48px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .print-slide:last-child {
+        page-break-after: auto;
+      }
+
+      .print-slide .slide-content {
+        width: 100%;
+        max-width: 900px;
+      }
+
+      .sim-placeholder {
+        border: 2px dashed #8B0029;
+        border-radius: 12px;
+        padding: 40px;
+        text-align: center;
+        color: #8B0029;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: #f9f2f4;
+      }
+
+      @media print {
+        body { margin: 0; }
+        .print-slide {
+          padding: 24px 32px;
+          min-height: auto;
+          height: 100vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {slides.map((html) => (
+      <div class="print-slide">
+        <div class="slide-content" set:html={html} />
+      </div>
+    ))}
+  </body>
+</html>

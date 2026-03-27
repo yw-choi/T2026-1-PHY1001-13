@@ -207,6 +207,11 @@ $$mgh = \frac{1}{2}mv_\text{max}^2 \implies v_\text{max} = \sqrt{2gh}$$
 
 ---
 
+<!-- sim:pendulum-energy.html -->
+진자의 에너지 변환 시뮬레이션
+
+---
+
 <!-- sim:energy-conservation.html -->
 역학적 에너지 보존 시뮬레이션
 

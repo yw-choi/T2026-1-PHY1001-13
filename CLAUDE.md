@@ -154,10 +154,17 @@
 
 ### 배포
 
+**프로덕션** (GitHub Pages: `yw-choi.github.io/PHY1001/`):
 ```bash
 cd website && npm run build
 cp -r dist/* ../gh-pages/static/PHY1001/
 cd ../gh-pages && git add -A && git commit -m "Update" && git push
+```
+
+**테스트** (vesper: `vesper.sogang.ac.kr/PHY1001/`):
+```bash
+# vesper에서 직접 빌드 (nginx가 dist/ 디렉토리를 직접 서빙)
+ssh vesper.sogang.ac.kr "cd ~/projects/PHY1001-2026-1 && git pull && cd website && npm run build"
 ```
 
 ## 연습문제 출제 지침

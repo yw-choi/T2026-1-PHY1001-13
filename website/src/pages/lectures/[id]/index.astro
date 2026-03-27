@@ -1,6 +1,6 @@
 ---
-import SlideLayout from '../../layouts/SlideLayout.astro';
-import SlideEngine from '../../components/SlideEngine.astro';
+import SlideLayout from '../../../layouts/SlideLayout.astro';
+import SlideEngine from '../../../components/SlideEngine.astro';
 import { getCollection } from 'astro:content';
 import { marked } from 'marked';
 import katex from 'katex';
@@ -96,5 +96,5 @@ const slides = await Promise.all(
 ---
 
 <SlideLayout title={lecture.data.title}>
-  <SlideEngine title={lecture.data.title} slides={slides} />
+  <SlideEngine title={lecture.data.title} slides={slides} pdfUrl={`${base}pdf/${lecture.id}.pdf`} />
 </SlideLayout>

@@ -148,6 +148,13 @@ export const simulations: Simulation[] = [
     description: '$U(x)$ 곡선 위에서 $E_{\\text{mec}}$ 수준을 조절하여 반환점, 안정/불안정 평형점을 탐색합니다. $F(x) = -dU/dx$ 관계를 시각적으로 확인합니다.',
   },
   {
+    id: 'pendulum-energy',
+    file: 'pendulum-energy.html',
+    title: '진자의 에너지 변환',
+    chapter: 8,
+    description: '진자의 운동에너지($K$)와 퍼텐셜에너지($U$)가 실시간으로 변환되는 과정을 관찰합니다. 최저점에서 $v_{\\max} = \\sqrt{2gh}$, 최고점에서 $K = 0$을 확인합니다.',
+  },
+  {
     id: 'rolling-race',
     file: 'rolling-race.html',
     title: '구름 운동 경주',

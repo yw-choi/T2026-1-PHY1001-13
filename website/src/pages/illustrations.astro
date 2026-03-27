@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const base = import.meta.env.BASE_URL;
+const imgDir = path.join(process.cwd(), 'public/img');
+
+const chapterTitles: Record<string, string> = {
+  ch01: '1장: 측정',
+  ch02: '2장: 직선 운동',
+  ch03: '3장: 벡터',
+  ch04: '4장: 2·3차원 운동',
+  ch05: '5장: 힘과 운동 I',
+  ch06: '6장: 힘과 운동 II',
+  ch07: '7장: 운동에너지와 일',
+  ch08: '8장: 퍼텐셜에너지와 보존',
+  ch09: '9장: 질량중심과 운동량',
+  ch10: '10장: 회전',
+  ch11: '11장: 굴림, 토크, 각운동량',
+  ch12: '12장: 평형과 탄성',
+};
+
+type ChapterData = { id: string; title: string; files: string[] };
+const chapters: ChapterData[] = [];
+
+const dirs = fs.readdirSync(imgDir).filter(d => d.startsWith('ch')).sort();
+for (const dir of dirs) {
+  const fullPath = path.join(imgDir, dir);
+  if (!fs.statSync(fullPath).isDirectory()) continue;
+  const files = fs.readdirSync(fullPath).filter(f => f.endsWith('.svg')).sort();
+  if (files.length === 0) continue;
+  chapters.push({
+    id: dir,
+    title: chapterTitles[dir] || dir,
+    files,
+  });
+}
+---
+
+<BaseLayout title="다이어그램 갤러리">
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-[var(--sogang-red)] mb-2">다이어그램 갤러리</h1>
+    <p class="text-gray-500 text-sm mb-6">강의 슬라이드에 사용된 SVG 다이어그램 모음 (총 {chapters.reduce((s, c) => s + c.files.length, 0)}개)</p>
+
+    <!-- Chapter quick nav -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      {chapters.map(ch => (
+        <a href={`#${ch.id}`} class="text-xs font-semibold px-3 py-1 rounded-full bg-[#8B0029]/8 text-[#8B0029] hover:bg-[#8B0029]/18 transition-colors">
+          {ch.id.replace('ch', '')}장 <span class="opacity-50">({ch.files.length})</span>
+        </a>
+      ))}
+    </div>
+
+    {chapters.map(ch => (
+      <div id={ch.id} class="mb-10">
+        <h2 class="text-lg font-bold text-[var(--sogang-red)] mb-4 border-b border-[#8B0029]/15 pb-2">{ch.title}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {ch.files.map(file => {
+            const name = file.replace('.svg', '').replace(/-/g, ' ');
+            const imgPath = `${base}img/${ch.id}/${file}`;
+            return (
+              <a href={imgPath} target="_blank" class="group block bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#8B0029]/25 transition-all overflow-hidden">
+                <div class="p-3 bg-gray-50 flex items-center justify-center" style="min-height: 180px;">
+                  <img src={imgPath} alt={name} class="max-h-44 w-auto object-contain group-hover:scale-[1.02] transition-transform" loading="lazy" />
+                </div>
+                <div class="px-3 py-2 border-t border-gray-100">
+                  <span class="text-xs text-gray-600 leading-tight block">{name}</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>
