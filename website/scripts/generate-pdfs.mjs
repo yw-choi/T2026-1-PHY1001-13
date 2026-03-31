@@ -86,8 +86,9 @@ for (const id of lectureIds) {
   const page = await context.newPage();
   await page.goto(url, { waitUntil: 'networkidle' });
 
-  // Wait for KaTeX fonts to load
-  await page.waitForTimeout(1000);
+  // Wait for all web fonts (KaTeX + Noto Sans KR) to load
+  await page.waitForFunction(() => document.fonts.ready.then(() => true), { timeout: 10000 }).catch(() => {});
+  await page.waitForTimeout(500);
 
   await page.pdf({
     path: outPath,
