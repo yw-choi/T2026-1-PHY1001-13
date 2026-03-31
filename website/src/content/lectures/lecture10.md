@@ -399,7 +399,9 @@ $$\Delta K = K_f - K_i = \frac{1}{2}I\omega_f^2 - \frac{1}{2}I\omega_i^2 = W$$
 
 유도:
 
-$$W = \int \tau\, d\theta = \int I\alpha\, d\theta = I\int \frac{d\omega}{dt} d\theta = I\int \omega\, d\omega = \frac{1}{2}I\omega_f^2 - \frac{1}{2}I\omega_i^2$$
+$$W = \int \tau\, d\theta = \int I\alpha\, d\theta = I\int \frac{d\omega}{dt}\, d\theta$$
+
+$$= I\int \omega\, d\omega = \frac{1}{2}I\omega_f^2 - \frac{1}{2}I\omega_i^2$$
 
 ---
 
