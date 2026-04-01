@@ -564,8 +564,9 @@ $$v_{1f} = v_{1i}\cos\theta_1, \quad v_{2f} = v_{1i}\sin\theta_1$$
 
 ### 기호 정의
 
-- $M$: 로켓의 질량 (시간에 따라 감소)
-- $dM > 0$: 시간 $dt$ 동안 **분출된** 연료 질량
+- $M$: 로켓의 질량 (연료 포함, 시간에 따라 감소)
+- $dM < 0$: 로켓 질량의 변화량 (연료를 분출하면 **감소** 하므로 음수)
+- $-dM > 0$: 분출된 연료의 질량
 - $v_\text{rel} > 0$: 배기가스의 로켓 대비 **속력** (항상 양수)
 - 배기가스의 **지면 기준** 속도: $v - v_\text{rel}$ (로켓 진행 반대 방향)
 
@@ -575,37 +576,31 @@ $$v_{1f} = v_{1i}\cos\theta_1, \quad v_{2f} = v_{1i}\sin\theta_1$$
 
 시각 $t$: 질량 $M$인 로켓이 속도 $v$로 운동
 
-시각 $t + dt$: 질량 $dM$($>0$)의 배기가스를 속력 $v_\text{rel}$로 분사
+시각 $t + dt$: 로켓 질량이 $M + dM$으로 변함 ($dM < 0$), 분출된 가스 질량은 $-dM > 0$
 
 운동량 보존 (외력 무시):
 
-$$Mv = (M - dM)(v + dv) + dM(v - v_\text{rel})$$
+$$Mv = (M + dM)(v + dv) + (-dM)(v - v_\text{rel})$$
 
 전개하면 ($dM\,dv$ 이차항 무시):
 
-$$Mv = Mv + M\,dv - dM\,v - \cancel{dM\,dv} + dM\,v - dM\,v_\text{rel}$$
+$$Mv = Mv + M\,dv + dM\,v + \cancel{dM\,dv} - dM\,v + dM\,v_\text{rel}$$
 
-$$0 = M\,dv - v_\text{rel}\,dM$$
+$$0 = M\,dv + dM\,v_\text{rel}$$
 
-$$\boxed{M\,dv = v_\text{rel}\,dM}$$
+$$\boxed{M\,dv = -v_\text{rel}\,dM}$$
 
-여기서 $dM > 0$ (분출 질량), $v_\text{rel} > 0$ 이므로 $dv > 0$ ✓ — 로켓이 가속한다!
+$dM < 0$, $v_\text{rel} > 0$ 이므로 $-v_\text{rel}\,dM > 0$ → $dv > 0$ ✓ — 로켓이 가속한다!
 
 ---
 
 ### 치올코프스키 로켓 방정식
 
-적분하려면 로켓 질량 $M$으로 통일해야 한다. 로켓 질량의 미분은:
+$M\,dv = -v_\text{rel}\,dM$에서 바로 적분한다. 로켓 질량이 $M_i$에서 $M_f$로 변할 때 ($M_f < M_i$):
 
-$$dm = -dM \quad (\text{분출하면 로켓 질량 감소})$$
+$$dv = -v_\text{rel}\,\frac{dM}{M}$$
 
-따라서 $M\,dv = v_\text{rel}\,dM = -v_\text{rel}\,dm$에서:
-
-$$dv = -v_\text{rel}\,\frac{dm}{m}$$
-
-$M_i$에서 $M_f$까지 적분하면 ($M_f < M_i$):
-
-$$\int_{v_i}^{v_f} dv = -v_\text{rel} \int_{M_i}^{M_f} \frac{dm}{m} = -v_\text{rel}\left[\ln M_f - \ln M_i\right]$$
+$$\int_{v_i}^{v_f} dv = -v_\text{rel} \int_{M_i}^{M_f} \frac{dM}{M} = -v_\text{rel}\left[\ln M_f - \ln M_i\right]$$
 
 $$\boxed{v_f - v_i = v_\text{rel} \ln\frac{M_i}{M_f}}$$
 
@@ -630,11 +625,11 @@ $$\Delta v = v_\text{rel} \ln\frac{M_i}{M_f}$$
 
 ### 추력(Thrust)
 
-$M\,dv = v_\text{rel}\,dM$의 양변을 $dt$로 나누면:
+$M\,dv = -v_\text{rel}\,dM$의 양변을 $dt$로 나누면:
 
-$$M\frac{dv}{dt} = v_\text{rel}\frac{dM}{dt}$$
+$$M\frac{dv}{dt} = -v_\text{rel}\frac{dM}{dt}$$
 
-여기서 $R = dM/dt > 0$은 **연료 분출율** (단위 시간당 분출 질량)이다.
+$R = -dM/dt > 0$은 **연료 분출율** (단위 시간당 분출 질량)이다. ($dM/dt < 0$이므로 부호 반전)
 
 로켓 엔진의 **추력(thrust)**:
 
