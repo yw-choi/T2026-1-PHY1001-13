@@ -562,36 +562,57 @@ $$v_{1f} = v_{1i}\cos\theta_1, \quad v_{2f} = v_{1i}\sin\theta_1$$
 
 ---
 
+### 기호 정의
+
+- $M$: 로켓의 질량 (시간에 따라 감소)
+- $dM > 0$: 시간 $dt$ 동안 **분출된** 연료 질량
+- $v_\text{rel} > 0$: 배기가스의 로켓 대비 **속력** (항상 양수)
+- 배기가스의 **지면 기준** 속도: $v - v_\text{rel}$ (로켓 진행 반대 방향)
+
+---
+
 ### 로켓 방정식 유도
 
 시각 $t$: 질량 $M$인 로켓이 속도 $v$로 운동
 
-시각 $t + dt$: 질량 $dM$의 배기가스를 상대속도 $v_\text{rel}$로 분사
+시각 $t + dt$: 질량 $dM$($>0$)의 배기가스를 속력 $v_\text{rel}$로 분사
 
 운동량 보존 (외력 무시):
 
 $$Mv = (M - dM)(v + dv) + dM(v - v_\text{rel})$$
 
-정리하면:
+전개하면 ($dM\,dv$ 이차항 무시):
 
-$$M\,dv = v_\text{rel}\,dM$$
+$$Mv = Mv + M\,dv - dM\,v - \cancel{dM\,dv} + dM\,v - dM\,v_\text{rel}$$
 
-$$dv = v_\text{rel}\frac{dM}{M}$$
+$$0 = M\,dv - v_\text{rel}\,dM$$
+
+$$\boxed{M\,dv = v_\text{rel}\,dM}$$
+
+여기서 $dM > 0$ (분출 질량), $v_\text{rel} > 0$ 이므로 $dv > 0$ ✓ — 로켓이 가속한다!
 
 ---
 
 ### 치올코프스키 로켓 방정식
 
-적분하면 ($M_i$에서 $M_f$까지 질량이 변할 때):
+적분하려면 로켓 질량 $M$으로 통일해야 한다. 로켓 질량의 미분은:
 
-$$\int_{v_i}^{v_f} dv = v_\text{rel} \int_{M_i}^{M_f} \frac{dM}{M}$$
+$$dm = -dM \quad (\text{분출하면 로켓 질량 감소})$$
 
-$$v_f - v_i = v_\text{rel} \ln\frac{M_i}{M_f}$$
+따라서 $M\,dv = v_\text{rel}\,dM = -v_\text{rel}\,dm$에서:
+
+$$dv = -v_\text{rel}\,\frac{dm}{m}$$
+
+$M_i$에서 $M_f$까지 적분하면 ($M_f < M_i$):
+
+$$\int_{v_i}^{v_f} dv = -v_\text{rel} \int_{M_i}^{M_f} \frac{dm}{m} = -v_\text{rel}\left[\ln M_f - \ln M_i\right]$$
+
+$$\boxed{v_f - v_i = v_\text{rel} \ln\frac{M_i}{M_f}}$$
 
 이것이 **치올코프스키 로켓 방정식(Tsiolkovsky rocket equation)** 이다.
 
-- $v_\text{rel}$: 배기가스의 상대 속도 (로켓 기준)
-- $M_i / M_f$: 질량비 (초기 질량 / 최종 질량)
+- $v_\text{rel} > 0$: 배기가스의 로켓 대비 속력
+- $M_i / M_f > 1$: 질량비 → $\ln > 0$ → $\Delta v > 0$ ✓
 
 ---
 
@@ -609,15 +630,21 @@ $$\Delta v = v_\text{rel} \ln\frac{M_i}{M_f}$$
 
 ### 추력(Thrust)
 
-로켓 엔진의 **추력(thrust)** $T$는:
+$M\,dv = v_\text{rel}\,dM$의 양변을 $dt$로 나누면:
 
-$$T = v_\text{rel} \frac{dM}{dt} = v_\text{rel} R$$
+$$M\frac{dv}{dt} = v_\text{rel}\frac{dM}{dt}$$
 
-여기서 $R = dM/dt$는 연료 소모율(질량 유량)이다.
+여기서 $R = dM/dt > 0$은 **연료 분출율** (단위 시간당 분출 질량)이다.
+
+로켓 엔진의 **추력(thrust)**:
+
+$$\boxed{T = v_\text{rel}\,R}$$
+
+$v_\text{rel} > 0$, $R > 0$이므로 $T > 0$ ✓
 
 외부 중력을 고려하면:
 
-$$Ma = T - Mg = v_\text{rel}R - Mg$$
+$$Ma = T - Mg = v_\text{rel}\,R - Mg$$
 
 추력이 중력보다 커야 이륙할 수 있다: $T > Mg$.
 
