@@ -26,6 +26,14 @@ const chapterTitles: Record<number, string> = {
   10: '회전',
   11: '구름·돌림힘·각운동량',
   12: '평형과 탄성',
+  13: '중력',
+  14: '유체',
+  15: '진동',
+  16: '파동 I',
+  17: '파동 II',
+  18: '온도, 열, 열역학 제1법칙',
+  19: '기체 분자 운동론',
+  20: '엔트로피와 열역학 제2법칙',
 };
 
 // --- Lecture data ---
@@ -42,7 +50,7 @@ for (const lec of allSlideLectures) {
 }
 
 // --- Homework chapters (1-10) ---
-const hwChapters = new Set(Array.from({ length: 10 }, (_, i) => i + 1));
+const hwChapters = new Set(Array.from({ length: 20 }, (_, i) => i + 1));
 
 // --- Simulations by chapter ---
 const simsByChapter = new Map<number, typeof simulations>();
@@ -52,7 +60,7 @@ for (const sim of simulations) {
 }
 
 // --- Build chapter cards ---
-const maxCh = 12;
+const maxCh = 20;
 const chapters = Array.from({ length: maxCh }, (_, i) => {
   const ch = i + 1;
   return {
@@ -176,10 +184,16 @@ const legacyGroups = legacyCategories.map((cat) => ({
                 </a>
               ))}
               {hasHomework && (
-                <a href={`${base}homeworks/ch${String(ch).padStart(2, '0')}_homework.pdf`} target="_blank"
-                  class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors">
-                  숙제
-                </a>
+                <>
+                  <a href={`${base}homeworks/ch${String(ch).padStart(2, '0')}_homework.pdf`} target="_blank"
+                    class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors">
+                    숙제
+                  </a>
+                  <a href={`${base}homeworks/ch${String(ch).padStart(2, '0')}_homework_solution.pdf`} target="_blank"
+                    class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors">
+                    솔루션
+                  </a>
+                </>
               )}
             </div>
           </div>
