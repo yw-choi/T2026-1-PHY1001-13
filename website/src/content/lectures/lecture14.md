@@ -127,7 +127,9 @@ $$p_g = \rho g h = (1000)(9.8)(10) = 9.8 \times 10^4\;\text{Pa} \approx 1\;\text
 
 심해 마리아나 해구(깊이 약 11,000 m):
 
-$$p \approx 1 + \frac{(1000)(9.8)(11000)}{1.01 \times 10^5} \approx 1086\;\text{atm}$$
+$$p \approx 1 + \frac{(1000)(9.8)(11000)}{1.01 \times 10^5} \approx 1068\;\text{atm}$$
+
+(해수 밀도 $\sim 1025\;\text{kg/m}^3$ 및 고압 압축 효과까지 포함하면 실측은 약 1100 atm)
 
 ---
 
@@ -169,7 +171,7 @@ $h$: 양쪽 액면의 높이 차이
 
 $$\Delta p = \Delta p_{\text{ext}}$$
 
-이 원리는 1652년 블레즈 파스칼(Blaise Pascal)이 처음 명확히 기술했다.
+이 원리는 17세기 중반(1650년대) 블레즈 파스칼(Blaise Pascal)이 처음 명확히 기술했다.
 
 ---
 
@@ -408,9 +410,9 @@ $\Delta V$로 나누고 정리하면:
 
 $$p_1 + \frac{1}{2}\rho v_1^2 + \rho g y_1 = p_2 + \frac{1}{2}\rho v_2^2 + \rho g y_2$$
 
-$$\boxed{p + \frac{1}{2}\rho v^2 + \rho g y = \text{일정}}$$
+$$\boxed{p + \frac{1}{2}\rho v^2 + \rho g y = \text{일정 (같은 유선 위에서)}}$$
 
-이것이 **베르누이 방정식(Bernoulli's equation)** 이다.
+이것이 **베르누이 방정식(Bernoulli's equation)** 이다. **가정**: 정상·비점성·비압축성 흐름의 **같은 유선** 위 두 점에서 성립. 비회전(irrotational)이면 모든 점에서 동일한 상수.
 
 ---
 
@@ -444,11 +446,13 @@ $$p_2 = p_1 + \rho g(y_1 - y_2)$$
 
 **2. 토리첼리의 정리** (큰 탱크에서 물이 빠져나올 때):
 
-탱크 수면 높이 $h$에서, 하부 구멍의 유출 속력:
+<img src="/img/ch14/torricelli.svg" style="max-height:42vh">
 
-$$v = \sqrt{2gh}$$
+베르누이를 점 1(수면)과 점 2(구멍)에 적용. 큰 탱크라 $A_\text{tank} \gg A_\text{hole}$ → 연속방정식에서 $v_1 \approx 0$. 양쪽 모두 대기 중이라 $p_1 = p_2 = p_0$:
 
-이는 높이 $h$에서 자유 낙하하는 물체의 속력과 같다!
+$$\rho g h = \tfrac{1}{2}\rho v_2^2 \;\Rightarrow\; \boxed{v = \sqrt{2gh}}$$
+
+높이 $h$에서 자유 낙하하는 물체의 속력과 같다.
 
 ---
 

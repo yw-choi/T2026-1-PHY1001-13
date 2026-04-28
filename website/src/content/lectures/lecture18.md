@@ -363,6 +363,7 @@ $$dE_\text{int} = dQ - dW$$
 
 | 과정 | 조건 | 결과 |
 |---|---|---|
+| **등온(isothermal)** | $\Delta T = 0$, $\Delta E_\text{int}=0$ (이상기체) | $Q = W$ |
 | **단열(adiabatic)** | $Q = 0$ | $\Delta E_\text{int} = -W$ |
 | **등적(constant volume)** | $W = 0$ | $\Delta E_\text{int} = Q$ |
 | **순환(closed cycle)** | $\Delta E_\text{int} = 0$ | $Q = W$ |
@@ -370,19 +371,34 @@ $$dE_\text{int} = dQ - dW$$
 
 ---
 
+### 등온 과정 ($\Delta T = 0$, 이상기체)
+
+이상기체에서 내부 에너지는 온도만의 함수이므로 $\Delta E_\text{int} = 0$ → $Q = W$.
+
+상태식 $pV = nRT$에서 $T$가 일정하면 $p = nRT/V$. 이를 적분:
+
+$$W = \int_{V_i}^{V_f} p\,dV = nRT \int_{V_i}^{V_f}\frac{dV}{V} = \boxed{nRT\,\ln\!\frac{V_f}{V_i}}$$
+
+p-V 도해에서는 $pV = \text{const}$ 쌍곡선.
+
+---
+
 ### 단열 과정 ($Q = 0$)
 
-계와 환경 사이에 열교환이 없다. 두 가지 상황:
+계와 환경 사이에 열교환이 없다. 두 가지 상황: ① 계가 완벽히 단열되어 있거나 ② 과정이 매우 빠르게 일어나 열이 전달될 시간이 없을 때.
 
-1. 계가 완벽히 단열되어 있거나
-2. 과정이 매우 빠르게 일어나 열이 전달될 시간이 없을 때
+제1법칙: $\Delta E_\text{int} = -W$
 
-$$\Delta E_\text{int} = -W$$
+이상기체 상태식 + 비열 관계로부터 (다음 19장 유도):
 
-- 단열 팽창: 기체가 일을 하면 ($W > 0$) → $\Delta E_\text{int} < 0$ → **온도 감소**
-- 단열 압축: 외부가 일을 하면 ($W < 0$) → $\Delta E_\text{int} > 0$ → **온도 증가**
+$$\boxed{p\,V^{\gamma} = \text{const}, \quad T\,V^{\gamma-1} = \text{const}}$$
 
-디젤 엔진은 공기를 단열 압축해서 온도를 올려 연료를 점화시킨다!
+여기서 $\gamma = C_p/C_V$. p-V 도해에서 단열 곡선은 등온 쌍곡선보다 **더 가파르다** ($\gamma > 1$).
+
+- 단열 팽창: 기체가 일을 함 ($W > 0$) → $\Delta E_\text{int} < 0$ → **온도 감소**
+- 단열 압축: 외부가 일을 함 ($W < 0$) → $\Delta E_\text{int} > 0$ → **온도 증가**
+
+디젤 엔진은 공기를 단열 압축해서 온도를 올려 연료를 점화시킨다.
 
 ---
 
@@ -401,6 +417,14 @@ $$Q = W$$
 - p-V 다이어그램에서 닫힌 곡선의 면적이 한 순환 동안의 알짜 일
 - 시계 방향: $W_\text{net} > 0$ (열기관)
 - 반시계 방향: $W_\text{net} < 0$ (냉동기, 열펌프)
+
+---
+
+### 네 과정의 p-V 도해 비교
+
+<img src="/img/ch18/pv-diagram-processes.svg" style="max-height:55vh">
+
+같은 시작점에서 출발해도 등온/등압/등적/단열 경로에 따라 끝점과 일($\int p\,dV$=곡선 아래 면적)이 모두 다르다.
 
 ---
 

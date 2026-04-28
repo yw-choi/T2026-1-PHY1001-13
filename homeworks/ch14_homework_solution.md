@@ -28,41 +28,39 @@ $$\boxed{F \approx 1760\;\text{N} \approx 1.76\;\text{kN}}$$
 
 ## 문제 2 풀이
 
-$d_i = 5.0\;\text{cm}$, $d_o = 30\;\text{cm}$, $M = 1800\;\text{kg}$
+$D_i = 5.0\;\text{cm}$, $D_o = 30\;\text{cm}$, $M = 1800\;\text{kg}$. 이동거리는 $s_i$(작은 피스톤), $s_o$(큰 피스톤).
 
 면적비:
 
-$$\frac{A_o}{A_i} = \frac{\pi d_o^2/4}{\pi d_i^2/4} = \frac{d_o^2}{d_i^2} = \frac{(30)^2}{(5.0)^2} = \frac{900}{25} = 36$$
+$$\frac{A_o}{A_i} = \frac{\pi D_o^2/4}{\pi D_i^2/4} = \left(\frac{D_o}{D_i}\right)^2 = \left(\frac{30}{5.0}\right)^2 = 36$$
 
-**(a)** 파스칼의 원리에 의해:
+**(a)** 파스칼의 원리에 의해 두 피스톤 압력이 같다:
 
-$$F_o = F_i \cdot \frac{A_o}{A_i} \quad \Rightarrow \quad F_i = \frac{F_o}{A_o/A_i} = \frac{Mg}{36} = \frac{(1800)(9.80)}{36} = \frac{17640}{36} = 490\;\text{N}$$
+$$\frac{F_i}{A_i} = \frac{F_o}{A_o} \quad\Rightarrow\quad F_i = F_o \cdot \frac{A_i}{A_o} = \frac{Mg}{36} = \frac{(1800)(9.80)}{36} = 490\;\text{N}$$
 
 $$\boxed{F_i = 490\;\text{N}}$$
 
-약 50 kgf — 한 손으로 펌프질 가능한 수준!
+약 50 kgf — 한 손으로 펌프질 가능한 수준.
 
-**(b)** 비압축성이므로 이동한 유체의 부피가 같다:
+**(b)** 비압축성이므로 양 피스톤이 밀어낸 유체 부피가 같다:
 
-$$A_i d_i = A_o d_o = A_o \cdot \Delta h$$
+$$A_i s_i = A_o s_o \quad\Rightarrow\quad s_i = \frac{A_o}{A_i}\, s_o = 36 \times 2.0 = 72\;\text{m}$$
 
-$$d_i = \frac{A_o}{A_i} \cdot \Delta h = 36 \times 2.0 = 72\;\text{m}$$
-
-$$\boxed{d_i = 72\;\text{m}}$$
+$$\boxed{s_i = 72\;\text{m}}$$
 
 실제로는 펌프를 여러 번 반복하여 이 거리를 누적한다.
 
 **(c)** 작은 피스톤에서 한 일:
 
-$$W_i = F_i \cdot d_i = (490)(72) = 35{,}280\;\text{J}$$
+$$W_i = F_i \cdot s_i = (490)(72) = 35{,}280\;\text{J}$$
 
-큰 피스톤에서 한 일:
+큰 피스톤이 자동차에 한 일:
 
-$$W_o = F_o \cdot \Delta h = (17{,}640)(2.0) = 35{,}280\;\text{J}$$
+$$W_o = F_o \cdot s_o = (17{,}640)(2.0) = 35{,}280\;\text{J}$$
 
-$$\boxed{W_i = W_o = 35{,}280\;\text{J} \approx 35.3\;\text{kJ}}$$
+$$\boxed{W_i = W_o \approx 35.3\;\text{kJ}}$$
 
-힘은 36배 증폭되지만, 이동 거리는 1/36로 줄어 일은 동일하다. 에너지 보존 법칙이 성립한다.
+힘은 36배 증폭되지만 이동 거리는 1/36로 줄어 일은 동일 — 에너지 보존.
 
 ---
 
@@ -82,23 +80,21 @@ $$\frac{V_{\text{above}}}{V} = 1 - 0.8946 = 0.1054$$
 
 $$\boxed{V_{\text{above}}/V \approx 10.5\%}$$
 
-**(b)** 얼음의 질량: $m = \rho_{\text{ice}} V = 917 \times 0.50 = 458.5\;\text{kg}$
+**(b)** **가정**: 녹은 순수 물(밀도 $\rho_w = 1000\;\text{kg/m}^3$)은 소금물과 즉시 섞이지 않고 위쪽에 별도로 자리잡는다고 본다. 이때 액체 표면 위치 변화는 "녹은 물의 부피 $V_\text{melt}$"와 "얼음이 떠 있을 때 배제했던 소금물 부피 $V_\text{sub}$"의 비교로 결정된다.
 
-떠 있을 때 배제한 소금물의 부피: $V_{\text{sub}} = m/\rho_{\text{sw}} = 458.5/1025 = 0.4473\;\text{m}^3$
+얼음 질량: $m = \rho_{\text{ice}} V = 917 \times 0.50 = 458.5\;\text{kg}$.
 
-얼음이 녹으면 물이 된다. 녹은 물의 부피 (순수한 물이 아닌 소금물이 된다고 가정하면 약간 다르지만, 얼음이 녹은 물의 질량은 $m$으로 같고 이 물이 차지하는 부피는 $V_{\text{melt}} = m/\rho_w$이다. 그러나 문제를 단순화하여 녹은 물이 소금물과 같은 밀도가 된다고 하면 $V_{\text{melt}} = m/\rho_{\text{sw}} = V_{\text{sub}}$):
+떠 있을 때 배제한 소금물 부피:
 
-더 정확한 풀이: 순수 얼음이 녹으면 순수한 물($\rho_w = 1000\;\text{kg/m}^3$)이 된다.
+$$V_{\text{sub}} = \frac{m}{\rho_{\text{sw}}} = \frac{458.5}{1025} = 0.4473\;\text{m}^3$$
+
+녹은 순수 물의 부피:
 
 $$V_{\text{melt}} = \frac{m}{\rho_w} = \frac{458.5}{1000} = 0.4585\;\text{m}^3$$
 
-배제했던 부피: $V_{\text{sub}} = 0.4473\;\text{m}^3$
+$V_{\text{melt}} > V_{\text{sub}}$ 이므로 녹은 물이 배제했던 공간보다 많다 → $\boxed{\text{수면이 약간 올라간다.}}$
 
-$V_{\text{melt}} > V_{\text{sub}}$이므로 녹은 물이 배제했던 공간보다 많다.
-
-$$\boxed{\text{수면이 약간 올라간다.}}$$
-
-순수한 물에 떠 있는 순수 얼음의 경우에는 $V_{\text{melt}} = m/\rho_w = V_{\text{sub}}$로 정확히 같아서 수면이 변하지 않는다.
+> 비교: 순수 물 위 순수 얼음이라면 $V_{\text{melt}} = V_{\text{sub}}$로 수면이 변하지 않는다(고전 결과).
 
 **(c)** 얼음 속의 돌맹이는 떠 있는 동안 자기 질량만큼의 소금물을 배제한다 ($V_{\text{displaced}} = m_{\text{rock}}/\rho_{\text{sw}}$). 얼음이 녹으면 돌은 가라앉고, 가라앉은 돌은 자기 부피($V_{\text{rock}} = m_{\text{rock}}/\rho_{\text{rock}}$)만큼의 물을 배제한다. $\rho_{\text{rock}} > \rho_{\text{sw}}$이므로 $V_{\text{rock}} < m_{\text{rock}}/\rho_{\text{sw}}$이다.
 
