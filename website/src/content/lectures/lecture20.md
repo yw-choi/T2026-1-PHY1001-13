@@ -39,6 +39,15 @@ Entropy and the Second Law of Thermodynamics
 
 ---
 
+
+## 비가역 과정은 자연스러운 방향을 가진다
+
+<img src="/img/ch20/ch20-entropy-mixing-dye.webp" class="visual-anchor" style="max-height:52vh">
+
+잉크가 물에 퍼지는 과정은 자발적으로 일어나지만 스스로 원래 상태로 되돌아가지는 않는다.
+
+---
+
 ### 엔트로피의 정의
 
 계가 초기 상태 $i$에서 최종 상태 $f$로 변할 때, **엔트로피 변화(change in entropy)** 는:
@@ -200,6 +209,15 @@ $$\boxed{\Delta S \geq 0}$$
 **열기관(heat engine)** 은 열에너지를 역학적 일로 변환하는 장치이다.
 
 자동차 엔진, 화력 발전소, 제트 엔진. 모두 열기관이다.
+
+---
+
+
+### 열기관은 두 열원 사이에서 일을 만든다
+
+<img src="/img/ch20/ch20-heat-engine-cutaway.webp" class="visual-anchor" style="max-height:52vh">
+
+열기관은 고온 열원에서 받은 열의 일부를 일로 바꾸고 나머지를 저온 열원으로 보낸다.
 
 ---
 
@@ -383,6 +401,15 @@ $$\Delta S_\text{total} = 0 \;\checkmark \quad \text{(가역 과정)}$$
 - 고온 열원으로 열 $|Q_H|$를 방출한다
 
 가정용 냉장고, 에어컨이 모두 냉동기이다.
+
+---
+
+
+### 냉동기는 일을 써서 열을 거꾸로 이동시킨다
+
+<img src="/img/ch20/ch20-refrigerator-heat-flow.webp" class="visual-anchor" style="max-height:52vh">
+
+냉동기는 낮은 온도의 내부에서 열을 빼내 높은 온도의 외부로 방출한다.
 
 ---
 

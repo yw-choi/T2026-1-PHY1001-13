@@ -38,6 +38,15 @@ Rotation
 
 ---
 
+
+## 회전 운동의 관찰
+
+<img src="/img/ch10/ch10-rotating-disk-lab.webp" class="visual-anchor" style="max-height:52vh">
+
+회전에서는 위치, 속도, 가속도를 각도와 각속도로 표현하는 것이 자연스럽다.
+
+---
+
 ## 10.1 각위치
 
 <img src="/img/ch10/angular-position.svg" style="max-height:50vh">
@@ -220,6 +229,15 @@ $$K = \sum_i \frac{1}{2}m_i v_i^2 = \frac{1}{2}\left(\sum_i m_i r_i^2\right)\ome
 
 ---
 
+
+### 관성모멘트는 질량 분포를 본다
+
+<img src="/img/ch10/ch10-inertia-objects.webp" class="visual-anchor" style="max-height:52vh">
+
+같은 질량이라도 회전축에서 얼마나 멀리 퍼져 있는지에 따라 돌리기 쉬운 정도가 달라진다.
+
+---
+
 ### 관성모멘트(moment of inertia)
 
 $$I = \sum_i m_i r_i^2$$
@@ -305,6 +323,15 @@ $$I = I_\text{com} + Mh^2 = 0.167 + 2.0 \times 0.5^2 = 0.167 + 0.500 = 0.667 \te
 병진 운동에서 **힘** 이 가속도를 일으키듯, 회전 운동에서는 **토크** 가 각가속도를 일으킨다.
 
 <img src="/img/ch10/torque-definition.svg" style="max-height:50vh">
+
+---
+
+
+### 토크는 회전을 만드는 힘의 효과
+
+<img src="/img/ch10/ch10-torque-door.webp" class="visual-anchor" style="max-height:52vh">
+
+같은 힘이라도 회전축에서 멀리, 수직에 가깝게 작용할수록 더 큰 토크를 만든다.
 
 ---
 

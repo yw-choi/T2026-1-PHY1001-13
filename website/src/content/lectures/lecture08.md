@@ -195,6 +195,15 @@ $$v = \sqrt{2gh} = \sqrt{2 \times 9.8 \times 56} \approx 33 \text{ m/s} \approx 
 
 ---
 
+
+### 위치에너지와 운동에너지의 교환
+
+<img src="/img/ch08/ch08-rollercoaster-energy.webp" class="visual-anchor" style="max-height:52vh">
+
+높은 곳에서는 중력 퍼텐셜에너지가 크고, 낮은 곳에서는 그 에너지가 운동에너지로 바뀐다.
+
+---
+
 ### 예시: 진자(pendulum)의 에너지 변환
 
 <img src="/img/ch08/pendulum-energy.svg" style="max-height:50vh">
@@ -204,6 +213,15 @@ $$v = \sqrt{2gh} = \sqrt{2 \times 9.8 \times 56} \approx 33 \text{ m/s} \approx 
 최저점(B)에서는 $U = 0$, $K = \frac{1}{2}mv_\text{max}^2$ (모든 에너지가 운동)
 
 $$mgh = \frac{1}{2}mv_\text{max}^2 \implies v_\text{max} = \sqrt{2gh}$$
+
+---
+
+
+### 진자에서 보이는 에너지 보존
+
+<img src="/img/ch08/ch08-pendulum-energy-photo.webp" class="visual-anchor" style="max-height:52vh">
+
+진자는 양 끝에서 위치에너지가 크고, 가장 낮은 지점에서 운동에너지가 가장 크다.
 
 ---
 
@@ -327,6 +345,15 @@ $$\Delta E_\text{mec} + \Delta E_\text{th} = W_\text{ext}$$
 외력이 없으면 ($W_\text{ext} = 0$):
 
 $$\Delta E_\text{mec} = -\Delta E_\text{th} = -f_k d$$
+
+---
+
+
+### 사라진 역학적 에너지의 행방
+
+<img src="/img/ch08/ch08-friction-thermal.webp" class="visual-anchor" style="max-height:52vh">
+
+마찰이 있을 때 줄어든 역학적 에너지는 주로 열에너지로 전환된다.
 
 ---
 

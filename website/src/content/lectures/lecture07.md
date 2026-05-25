@@ -76,6 +76,15 @@ $$K = \frac{1}{2}(3.0)(2.0)^2 = 6.0 \text{ J}$$
 
 ---
 
+
+### 일은 힘과 변위의 관계
+
+<img src="/img/ch07/ch07-work-box.webp" class="visual-anchor" style="max-height:52vh">
+
+힘이 물체를 움직이는 방향 성분을 가질 때 운동에너지를 바꿀 수 있다.
+
+---
+
 ### 일정한 힘이 하는 일
 
 일정한 힘 $\vec{F}$가 변위 $\vec{d}$만큼 물체를 이동시킬 때, 힘이 한 일:
@@ -218,6 +227,15 @@ $$F_x = -kx$$
 
 ---
 
+
+### 용수철에 저장되는 에너지
+
+<img src="/img/ch07/ch07-spring-compression.webp" class="visual-anchor" style="max-height:52vh">
+
+용수철을 압축하거나 늘이면 외부에서 한 일이 탄성 퍼텐셜에너지로 저장된다.
+
+---
+
 ### 용수철이 한 일
 
 용수철 힘은 **변하는 힘** 이므로, $W = Fd\cos\phi$를 바로 쓸 수 없다.
@@ -301,6 +319,15 @@ $$P_\text{avg} = \frac{W}{\Delta t}$$
 **순간 일률:**
 
 $$P = \frac{dW}{dt}$$
+
+---
+
+
+### 같은 일도 시간에 따라 다르다
+
+<img src="/img/ch07/ch07-power-stairs.webp" class="visual-anchor" style="max-height:52vh">
+
+일률은 단위 시간당 전달되는 에너지이므로 빠르게 같은 일을 할수록 더 큰 일률이 필요하다.
 
 ---
 

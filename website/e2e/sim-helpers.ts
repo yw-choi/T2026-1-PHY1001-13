@@ -26,6 +26,8 @@ export const SIMULATIONS = [
   'stress-strain',
   'vector-addition',
   'work-energy',
+  'oscillation-shm',
+  'damped-oscillation',
 ];
 
 export function simUrl(name: string) {

@@ -34,6 +34,15 @@ Rolling, Torque, and Angular Momentum
 
 ---
 
+
+## 굴림은 병진과 회전의 결합
+
+<img src="/img/ch11/ch11-rolling-race.webp" class="visual-anchor" style="max-height:52vh">
+
+굴러가는 물체는 질량중심의 병진 운동과 자체 회전 운동을 동시에 가진다.
+
+---
+
 ### 구름 조건
 
 미끄러짐 없는 구름 운동의 핵심 조건:
@@ -317,6 +326,15 @@ $$I_i\omega_i = I_f\omega_f$$
 
 ---
 
+
+### 질량 분포가 바뀌면 각속도가 바뀐다
+
+<img src="/img/ch11/ch11-angular-momentum-skater.webp" class="visual-anchor" style="max-height:52vh">
+
+외부 토크가 작으면 관성모멘트와 각속도가 서로 보상되어 각운동량을 보존한다.
+
+---
+
 ### 피겨 스케이팅: 각운동량 보존의 대표적 예
 
 <img src="/img/ch11/angular-momentum-conservation.svg" style="max-height:50vh">
@@ -374,6 +392,15 @@ $$\omega_f = \frac{I_i}{I_f}\omega_i = \frac{3.185}{0.785}(3.0) = 12.2 \text{ ra
 빠르게 회전하는 팽이가 쓰러지지 않고 빙글빙글 도는 현상 — **세차운동(precession)** 이다.
 
 회전하지 않는 팽이는 즉시 쓰러진다. 빠르게 회전하면 왜 쓰러지지 않을까?
+
+---
+
+
+### 자이로스코프의 느린 방향 변화
+
+<img src="/img/ch11/ch11-gyroscope-lab.webp" class="visual-anchor" style="max-height:52vh">
+
+빠르게 자전하는 물체는 중력 토크에 의해 넘어지기보다 각운동량 방향이 천천히 돈다.
 
 ---
 

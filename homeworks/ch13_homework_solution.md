@@ -284,18 +284,22 @@ $$\boxed{\Delta E = GMm\left(\frac{1}{R} - \frac{1}{2(R+h)}\right)}$$
 
 $$\Delta E = \frac{GMm}{R}\left(1 - \frac{R}{2(R+h)}\right) = \frac{GMm}{R}\cdot\frac{2(R+h) - R}{2(R+h)} = \frac{GMm(R + 2h)}{2R(R+h)}$$
 
-**(c)** $h \ll R$이면 $R + h \approx R$:
+**(c)** $x \equiv h/R \ll 1$로 두면
 
-$$\Delta E \approx \frac{GMm(R + 2h)}{2R \cdot R} = \frac{GMm}{2R^2}(R + 2h) = \frac{GMm}{2R} + \frac{GMmh}{R^2}$$
+$$\Delta E = \frac{GMm}{2R}\cdot\frac{1+2x}{1+x}.$$
 
-$g = GM/R^2$를 이용하면:
+$\dfrac{1+2x}{1+x} = 1 + x - x^2 + O(x^3)$이므로 $x$의 1차까지
 
-$$\boxed{\Delta E \approx \tfrac{1}{2}mgR + mgh}$$
+$$\Delta E \approx \frac{GMm}{2R}(1 + h/R) = \frac{GMm}{2R} + \frac{GMm\, h}{2R^2}.$$
 
-여기서 $\tfrac{1}{2}mgR$ 항은 표면 정지 → 표면 근처 원궤도 진입에 드는 부분(주로 운동에너지)이고, $mgh$ 항은 추가 고도 $h$만큼 올리는 데 드는 퍼텐셜에너지 증가분이다. $h \ll R$ 극한에서도 두 항을 모두 유지해야 한다(첫 항이 지배적이지만 둘째 항을 무시하지 않는다).
+$g = GM/R^2$을 쓰면
+
+$$\boxed{\Delta E \approx \tfrac{1}{2}mgR + \tfrac{1}{2}mgh}.$$
+
+물리적으로도 원궤도의 역학적 에너지 $-GMm/(2r)$를 $r=R$에서 미분하면 $\dfrac{dE}{dr}\big|_R = \dfrac{GMm}{2R^2} = \dfrac{1}{2}mg$이므로, 궤도 반지름을 $h$만큼 키우는 한계 비용은 $\tfrac{1}{2}mgh$이다(자유 상승의 $mgh$가 아님 — 절반은 궤도 운동에너지 감소로 상쇄된다).
 
 저궤도 위성에서 두 항의 크기를 비교하면 (단위 질량당):
 
 $$\tfrac{1}{2}gR \approx \tfrac{1}{2}\cdot 9.8 \cdot 6.37\times 10^6 \approx 3.1 \times 10^7\;\text{J/kg}$$
 
-이는 같은 $h \approx 400\,\text{km}$에 대응하는 $gh \approx 3.9 \times 10^6\;\text{J/kg}$의 약 8배다 — 즉 **궤도 진입의 에너지 비용은 고도를 올리는 것보다 궤도 속도를 얻는 데 훨씬 더 많이 든다**.
+이는 같은 $h \approx 400\,\text{km}$에 대응하는 $\tfrac{1}{2}gh \approx 2.0 \times 10^6\;\text{J/kg}$의 약 16배다 — 즉 **궤도 진입의 에너지 비용은 고도를 올리는 것보다 궤도 속도를 얻는 데 훨씬 더 많이 든다**.

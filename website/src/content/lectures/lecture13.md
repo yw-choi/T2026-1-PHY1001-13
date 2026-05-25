@@ -32,6 +32,15 @@ Gravitation
 
 ---
 
+
+## 중력은 궤도를 만든다
+
+<img src="/img/ch13/ch13-orbital-space.webp" class="visual-anchor" style="max-height:52vh">
+
+위성의 원운동은 중력이 계속 중심을 향해 작용하기 때문에 유지된다.
+
+---
+
 ## 13.1 뉴턴의 만유인력 법칙
 
 ### 만유인력 법칙 (Newton's Law of Gravitation)
@@ -169,6 +178,15 @@ $$a_g = \frac{GM}{r^2}$$
 **2. 지구는 완전한 구가 아니다:** 적도 반지름이 극 반지름보다 약 21 km 더 크다(타원체). 극지방이 중심에 더 가까우므로 $a_g$가 더 크다.
 
 **3. 지구가 자전한다:** 지표면의 물체는 지구와 함께 원운동을 하므로, 구심 가속도가 필요하다.
+
+---
+
+
+### 지구의 모양과 자전도 영향을 준다
+
+<img src="/img/ch13/ch13-gravity-variation-earth.webp" class="visual-anchor" style="max-height:52vh">
+
+중력가속도는 지구 중심까지의 거리와 자전에 의한 효과 때문에 위치에 따라 조금씩 달라진다.
 
 ---
 
@@ -313,6 +331,15 @@ $$K_i + U_i = K_f + U_f$$
 $$\frac{1}{2}mv^2 + \left(-\frac{GMm}{R}\right) = 0 + 0$$
 
 $$\boxed{v_\text{escape} = \sqrt{\frac{2GM}{R}}}$$
+
+---
+
+
+### 속력이 충분하면 닫힌 궤도를 벗어난다
+
+<img src="/img/ch13/ch13-escape-speed.webp" class="visual-anchor" style="max-height:52vh">
+
+탈출 속력은 물체가 중력 퍼텐셜 우물에서 벗어나기 위한 최소 속력이다.
 
 ---
 

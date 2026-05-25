@@ -48,6 +48,15 @@ Center of Mass and Linear Momentum
 
 ---
 
+
+## 질량중심은 전체 운동의 대표점
+
+<img src="/img/ch09/ch09-center-of-mass.webp" class="visual-anchor" style="max-height:52vh">
+
+복잡한 물체도 병진 운동만 볼 때는 질량중심이 움직이는 것처럼 다룰 수 있다.
+
+---
+
 ### 두 입자의 질량중심
 
 <img src="/img/ch09/two-particle-com.svg" style="max-height:50vh">
@@ -182,6 +191,15 @@ $$\vec{P} = \text{일정} \quad (\text{운동량 보존})$$
 **충격량(impulse)** $\vec{J}$는 힘의 시간 적분:
 
 $$\vec{J} = \int_{t_i}^{t_f} \vec{F}(t)\, dt$$
+
+---
+
+
+### 충돌 전후를 분리해서 본다
+
+<img src="/img/ch09/ch09-air-track-collision.webp" class="visual-anchor" style="max-height:52vh">
+
+짧은 시간 동안 큰 힘이 작용해도 전체 운동량 보존은 강력한 분석 도구가 된다.
 
 ---
 
@@ -559,6 +577,15 @@ $$v_{1f} = v_{1i}\cos\theta_1, \quad v_{2f} = v_{1i}\sin\theta_1$$
 로켓은 **질량이 변하는 계** 의 대표적 예이다.
 
 연료를 분사하면 로켓의 질량이 줄어들면서 속도가 증가한다.
+
+---
+
+
+### 로켓은 질량을 뒤로 밀어낸다
+
+<img src="/img/ch09/ch09-rocket-propulsion.webp" class="visual-anchor" style="max-height:52vh">
+
+연료를 뒤로 빠르게 내보내면 로켓은 운동량 보존에 의해 앞으로 가속된다.
 
 ---
 

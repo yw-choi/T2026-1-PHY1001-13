@@ -147,6 +147,15 @@ $$\boxed{\Delta L = \alpha L \Delta T}$$
 
 ---
 
+
+## 온도가 바뀌면 길이도 바뀐다
+
+<img src="/img/ch18/ch18-thermal-expansion-bridge.webp" class="visual-anchor" style="max-height:52vh">
+
+큰 구조물에서는 작은 열팽창도 누적되어 설계에서 반드시 고려해야 한다.
+
+---
+
 ### 부피 팽창
 
 3차원 물체는 모든 방향으로 팽창하므로 부피도 변한다:
@@ -321,6 +330,15 @@ $$\boxed{W = \int_{V_i}^{V_f} p\,dV}$$
 
 ---
 
+
+### 기체의 상태 변화와 일
+
+<img src="/img/ch18/ch18-pv-apparatus.webp" class="visual-anchor" style="max-height:52vh">
+
+피스톤-실린더 계는 열, 내부에너지, 일이 어떻게 연결되는지 보여주는 표준 모델이다.
+
+---
+
 ### p-V 다이어그램
 
 <img src="/img/ch18/first-law-pv.svg" style="max-height:50vh">
@@ -441,6 +459,15 @@ PV 다이어그램 시뮬레이션
 ### 세 가지 열전달 방식
 
 <img src="/img/ch18/heat-transfer-modes.svg" style="max-height:50vh">
+
+---
+
+
+### 열은 여러 경로로 이동한다
+
+<img src="/img/ch18/ch18-heat-transfer-modes.webp" class="visual-anchor" style="max-height:52vh">
+
+전도, 대류, 복사는 서로 다른 방식이지만 모두 에너지 전달의 형태이다.
 
 ---
 

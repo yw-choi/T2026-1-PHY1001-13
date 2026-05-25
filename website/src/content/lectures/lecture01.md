@@ -37,6 +37,15 @@ Measurement
 
 ---
 
+
+## 물리량은 측정에서 시작한다
+
+<img src="/img/ch01/ch01-measurement-lab.webp" class="visual-anchor" style="max-height:52vh">
+
+같은 물체라도 어떤 도구로, 어떤 정밀도로 재느냐에 따라 물리량의 의미가 달라진다.
+
+---
+
 ## SI 단위계
 
 국제단위계 **SI(Système International)** 는 7개의 **기본량(base quantities)** 을 정의한다.
@@ -155,6 +164,15 @@ $$c = 299\,792\,458 \text{ m/s} \quad \text{(정확한 값, 오차 없음)}$$
 
 ---
 
+
+### 길이 스케일의 폭
+
+<img src="/img/ch01/ch01-length-scales.webp" class="visual-anchor" style="max-height:52vh">
+
+물리학은 일상적인 길이부터 원자와 우주 규모까지 같은 단위 체계로 연결한다.
+
+---
+
 ## 유효숫자 (Significant Figures)
 
 **유효숫자** 란 측정에서 의미 있는 자릿수를 말한다.
@@ -172,6 +190,15 @@ $$c = 299\,792\,458 \text{ m/s} \quad \text{(정확한 값, 오차 없음)}$$
 - **덧셈/뺄셈**: 결과의 소수점 자릿수 = 가장 적은 쪽
 
 예: $3.14 \times 2.1 = 6.594 \rightarrow 6.6$ (유효숫자 2개)
+
+---
+
+
+### 정밀도와 유효숫자
+
+<img src="/img/ch01/ch01-precision-closeup.webp" class="visual-anchor" style="max-height:52vh">
+
+유효숫자는 계산 규칙이 아니라 측정이 실제로 담고 있는 정보량을 표시하는 방법이다.
 
 ---
 

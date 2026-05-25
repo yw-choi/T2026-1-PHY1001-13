@@ -38,6 +38,15 @@ Vectors
 
 ---
 
+
+## 방향이 있는 물리량
+
+<img src="/img/ch03/ch03-vector-navigation.webp" class="visual-anchor" style="max-height:52vh">
+
+속도와 변위처럼 방향이 중요한 물리량은 크기만으로는 운동을 결정할 수 없다.
+
+---
+
 ## 3.1 벡터와 그 성분
 
 ### 스칼라 vs 벡터
@@ -116,6 +125,15 @@ $-\vec{b}$는 $\vec{b}$와 크기가 같고 **방향이 반대** 인 벡터다.
 벡터 $\vec{a}$가 $x$축과 각도 $\theta$를 이루면:
 
 $$a_x = a\cos\theta, \quad a_y = a\sin\theta$$
+
+---
+
+
+### 벡터를 성분으로 나누기
+
+<img src="/img/ch03/ch03-vector-components.webp" class="visual-anchor" style="max-height:52vh">
+
+한 벡터를 서로 수직인 성분으로 분해하면 2차원 문제를 두 개의 1차원 문제처럼 다룰 수 있다.
 
 ---
 
@@ -254,6 +272,15 @@ $$\vec{r} = 3\hat{i} + 4\hat{j}$$
 | 물리 응용 | 일(work) | 토크(torque) |
 
 각각의 정의와 계산법을 배워보자.
+
+---
+
+
+### 내적과 외적의 물리적 차이
+
+<img src="/img/ch03/ch03-dot-cross-objects.webp" class="visual-anchor" style="max-height:52vh">
+
+내적은 한 방향으로의 투영을, 외적은 회전 효과와 면에 수직인 방향을 드러낸다.
 
 ---
 

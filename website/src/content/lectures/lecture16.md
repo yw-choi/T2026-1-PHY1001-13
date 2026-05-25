@@ -40,6 +40,15 @@ Waves. I
 
 ---
 
+
+## 파동은 교란의 전달이다
+
+<img src="/img/ch16/ch16-wave-tank.webp" class="visual-anchor" style="max-height:52vh">
+
+매질 자체가 멀리 이동하지 않아도 교란과 에너지는 공간을 따라 전파된다.
+
+---
+
 ### 횡파와 종파
 
 <img src="/img/ch16/transverse-longitudinal.svg" style="max-height:50vh">
@@ -320,6 +329,15 @@ $$\boxed{y'(x, t) = \left[2y_m \cos\frac{\phi}{2}\right] \sin\left(kx - \omega t
 
 ---
 
+
+### 두 파동이 겹치면 무늬가 생긴다
+
+<img src="/img/ch16/ch16-interference-ripples.webp" class="visual-anchor" style="max-height:52vh">
+
+같은 위상의 파원 두 개는 보강과 상쇄가 반복되는 간섭 패턴을 만든다.
+
+---
+
 ### 합성파의 진폭
 
 $$y'_m = \left|2y_m \cos\frac{\phi}{2}\right|$$
@@ -459,6 +477,15 @@ $$\frac{\lambda}{4}$$
 
 ---
 
+
+### 정상파는 경계조건이 고른 모드
+
+<img src="/img/ch16/ch16-standing-wave-string.webp" class="visual-anchor" style="max-height:52vh">
+
+양 끝이 고정된 줄에서는 특정 파장만 반복적으로 보강되어 정상파를 만든다.
+
+---
+
 ### 공명 조건
 
 양 끝이 고정된 줄(길이 $L$)에서 정상파가 존재하려면, 양 끝이 모두 마디여야 한다.
@@ -508,7 +535,7 @@ $$f_1 = \frac{v}{2L} = \frac{283}{2 \times 0.65} = 218\;\text{Hz}$$
 
 2차 조화파: $f_2 = 2 \times 218 = 436$ Hz
 
-3차 조화파: $f_3 = 3 \times 218 = 653$ Hz
+3차 조화파: $f_3 = 3 \times 218 = 654$ Hz
 
 ---
 
@@ -537,7 +564,7 @@ $$f_1 = \frac{v}{2L} = \frac{283}{2 \times 0.65} = 218\;\text{Hz}$$
 | 개념 | 공식 |
 |---|---|
 | 파동 방정식 | $\dfrac{\partial^2 y}{\partial x^2} = \dfrac{1}{v^2}\dfrac{\partial^2 y}{\partial t^2}$ |
-| 간섭 (같은 진폭) | $y'_m = \|2y_m \cos(\phi/2)\|$ |
+| 간섭 (같은 진폭) | $y'_m = \left\lvert 2y_m \cos(\phi/2)\right\rvert$ |
 | 정상파 | $y' = [2y_m \sin kx]\cos\omega t$ |
 | 공명 진동수 | $f_n = n\dfrac{v}{2L} = \dfrac{n}{2L}\sqrt{\dfrac{\tau}{\mu}}$ |
 

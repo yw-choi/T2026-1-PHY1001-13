@@ -8,7 +8,7 @@ import {
  * Interactivity tests:
  * - Moving sliders changes the canvas rendering
  * - Play/start buttons trigger animation (canvas changes over time)
- * - Reset button restores initial state
+ * - Reset button restores the current-parameter initial state
  */
 
 for (const sim of SIMULATIONS) {
@@ -62,11 +62,25 @@ for (const sim of SIMULATIONS) {
       expect.soft(after, 'Canvas should change after play').not.toBe(before);
     });
 
-    test('reset restores initial state', async ({ page }) => {
+    test('reset restores current-parameter initial state', async ({ page }) => {
       await page.goto(simUrl(sim));
       await waitForSimReady(page);
 
-      const initial = await getCanvasSnapshot(page);
+      // Change a slider first. Reset should restore the initial state for the
+      // current parameter values, not necessarily the original page-load values.
+      const sliders = await page.locator('.controls input[type="range"]').all();
+      if (sliders.length > 0) {
+        const id = await sliders[0].getAttribute('id');
+        const max = parseFloat(await sliders[0].getAttribute('max') || '10');
+        if (id) await setSlider(page, `#${id}`, max);
+      }
+
+      const resetBtn = page.locator('.reset-btn, .btn-secondary').first();
+      if (await resetBtn.isVisible().catch(() => false)) {
+        await resetBtn.click();
+        await page.waitForTimeout(200);
+      }
+      const parameterInitial = await getCanvasSnapshot(page);
 
       // Find and click play
       const playBtn = page.locator('.play-btn, .btn-primary').first();
@@ -75,25 +89,15 @@ for (const sim of SIMULATIONS) {
         await page.waitForTimeout(300);
       }
 
-      // Change a slider
-      const sliders = await page.locator('.controls input[type="range"]').all();
-      if (sliders.length > 0) {
-        const id = await sliders[0].getAttribute('id');
-        const max = parseFloat(await sliders[0].getAttribute('max') || '10');
-        if (id) await setSlider(page, `#${id}`, max);
-      }
-
-      // Find and click reset
-      const resetBtn = page.locator('.reset-btn, .btn-secondary').first();
       if (await resetBtn.isVisible().catch(() => false)) {
         await resetBtn.click();
         await page.waitForTimeout(200);
       }
 
       const afterReset = await getCanvasSnapshot(page);
-      // After reset, canvas should be back to initial (or very close)
+      // After reset, canvas should be back to the current-parameter initial state.
       // This is a soft check because some sims have stochastic elements
-      expect.soft(afterReset).toBe(initial);
+      expect.soft(afterReset).toBe(parameterInitial);
     });
   });
 }

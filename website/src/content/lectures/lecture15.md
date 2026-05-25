@@ -19,13 +19,19 @@ Oscillations
 - **진자(pendulum)** : 단진자와 물리 진자
 - **등속 원운동과 SHM** 의 관계
 - **감쇠진동(damped oscillation)** 과 **강제진동(forced oscillation)**
-- **공명(resonance)** : 왜 특정 진동수에서 진폭이 폭발적으로 커지는가
+- **공명(resonance)** : 왜 특정 진동수에서 진폭이 급격히 커지는가
 
 ---
 
 ## 진동은 어디에나 있다
 
-우리 주변은 진동으로 가득하다.
+<img src="/img/ch15/oscillation-everyday-collage.png" style="max-height:52vh">
+
+같은 수학이 용수철, 진자, 악기, 건물의 흔들림을 모두 설명한다.
+
+---
+
+## 진동 시스템의 공통 구조
 
 - 스마트폰의 진동 모터, 시계의 진자
 - 지진파에 의한 건물의 흔들림
@@ -107,17 +113,27 @@ $$\boxed{a(t) = -\omega^2 x(t)}$$
 
 ---
 
-### x(t), v(t), a(t) 그래프
+### 변위, 속도, 가속도 그래프
 
-<img src="/img/ch15/xva-graphs.svg" style="max-height:55vh">
+<img src="/img/ch15/xva-graphs.svg" style="max-height:43vh">
 
-세 그래프는 90°(=$T/4$) 위상씩 어긋나며, 진폭은 각각 $x_m$, $\omega x_m$, $\omega^2 x_m$.
+$$
+\begin{aligned}
+x(t) &= x_m\cos(\omega t+\phi),\\
+v(t) &= -\omega x_m\sin(\omega t+\phi),\\
+a(t) &= -\omega^2 x_m\cos(\omega t+\phi) = -\omega^2 x(t).
+\end{aligned}
+$$
+
+세 그래프는 $T/4$ 만큼 위상이 어긋나며, 진폭은 각각 $x_m$, $\omega x_m$, $\omega^2 x_m$이다.
 
 ---
 
 ### 용수철-질량 계: SHM의 대표적 예
 
-<img src="/img/ch15/spring-mass.svg" style="max-height:50vh">
+<img src="/img/ch15/spring-mass.svg" style="max-height:43vh">
+
+$$F=-kx,\qquad a=-\frac{k}{m}x,\qquad \omega=\sqrt{\frac{k}{m}}$$
 
 ---
 
@@ -187,7 +203,9 @@ $$T = \frac{2\pi}{\omega} = \frac{2\pi}{20} = 0.314\;\text{s}, \quad f = \frac{1
 
 ### 에너지의 교환
 
-<img src="/img/ch15/energy-vs-position.svg" style="max-height:50vh">
+<img src="/img/ch15/energy-vs-position.svg" style="max-height:43vh">
+
+$$U(x)=\frac{1}{2}kx^2,\qquad K(x)=E-U(x),\qquad E=\frac{1}{2}kx_m^2$$
 
 ---
 
@@ -250,11 +268,30 @@ $I$는 회전축에 대한 관성 모멘트이다.
 
 ---
 
+
+### 비틀림 진동도 SHM이 될 수 있다
+
+<img src="/img/ch15/ch15-torsion-oscillator.webp" class="visual-anchor" style="max-height:52vh">
+
+복원 토크가 각변위에 비례하면 회전 계도 단순조화운동을 한다.
+
+---
+
 ## 15.4 진자
+
+### 단진자의 실제 모습
+
+<img src="/img/ch15/pendulum-lab-photo.png" style="max-height:52vh">
+
+진자는 중력이 복원력을 제공하고, 추의 관성이 운동을 유지하는 진동계이다.
+
+---
 
 ### 단진자
 
-<img src="/img/ch15/pendulum-geometry.svg" style="max-height:50vh">
+<img src="/img/ch15/pendulum-geometry.svg" style="max-height:43vh">
+
+$$\tau=-mgL\sin\theta,\qquad \alpha=-\frac{g}{L}\sin\theta$$
 
 ---
 
@@ -272,7 +309,7 @@ $$-mgL\sin\theta = mL^2\alpha \implies \alpha = -\frac{g}{L}\sin\theta$$
 
 $$\alpha \approx -\frac{g}{L}\theta$$
 
-이것은 $a = -\omega^2 x$ 형태! 따라서 SHM이며:
+이것은 각변수에 대한 SHM 조건 $\alpha = -\omega^2\theta$ 형태이다. 따라서:
 
 $$\omega = \sqrt{\frac{g}{L}}, \quad \boxed{T = 2\pi\sqrt{\frac{L}{g}}}$$
 
@@ -325,32 +362,11 @@ $L = 1.00$ m일 때: $T = 2\pi\sqrt{\frac{2(1.00)}{3(9.80)}} = 1.64\;\text{s}$
 
 ### SHM은 원운동의 투영이다
 
-<img src="/img/ch15/reference-circle.svg" style="max-height:50vh">
-
----
-
-### 원운동과 SHM의 대응
-
-반지름 $x_m$인 원 위에서 각속도 $\omega$로 등속 원운동하는 입자 P'을 생각하자.
-
-시각 $t$에서의 각도: $\omega t + \phi$
-
-P'의 **$x$축 투영** :
+<img src="/img/ch15/reference-circle.svg" style="max-height:46vh">
 
 $$x(t) = x_m \cos(\omega t + \phi)$$
 
-이것은 정확히 SHM의 변위 함수이다!
-
-마찬가지로:
-- 속도의 $x$축 투영: $v(t) = -\omega x_m \sin(\omega t + \phi)$
-- 구심 가속도의 $x$축 투영: $a(t) = -\omega^2 x_m \cos(\omega t + \phi)$
-
-**SHM은 등속 원운동을 직경 위에 투영한 것이다.**
-
----
-
-<!-- sim:shm-spring.html -->
-용수철-질량 SHM 시뮬레이션
+원 위의 점 $P'$을 $x$축에 투영한 점 $P$가 SHM을 한다.
 
 ---
 
@@ -379,7 +395,7 @@ $$F_d = -bv$$
 
 $$m\frac{d^2x}{dt^2} + b\frac{dx}{dt} + kx = 0$$
 
-이 미분방정식의 해 ($b < 2\sqrt{km}$인 **약감쇠** 의 경우):
+이 미분방정식의 해 ($b < 2\sqrt{km}$인 **부족감쇠** 의 경우):
 
 $$\boxed{x(t) = x_m e^{-bt/2m}\cos(\omega' t + \phi)}$$
 
@@ -405,7 +421,9 @@ $$\boxed{E(t) \approx \frac{1}{2}kx_m^2 e^{-bt/m}}$$
 
 ### 감쇠 진동의 시각화
 
-<img src="/img/ch15/damped-envelope.svg" style="max-height:50vh">
+<img src="/img/ch15/damped-envelope.svg" style="max-height:43vh">
+
+$$x(t)=x_m e^{-bt/2m}\cos(\omega't+\phi),\qquad A(t)=x_m e^{-bt/2m}$$
 
 ---
 
@@ -415,6 +433,23 @@ $$\boxed{E(t) \approx \frac{1}{2}kx_m^2 e^{-bt/m}}$$
 ---
 
 ## 15.7 강제진동과 공명
+
+### 감쇠와 공명의 실제 장치
+
+<img src="/img/ch15/resonance-damping-applications.png" style="max-height:52vh">
+
+진동은 유용하게 증폭되기도 하고, 구조물과 기계에서는 반드시 제어해야 할 대상이 되기도 한다.
+
+---
+
+
+### 외부 구동이 진폭을 키운다
+
+<img src="/img/ch15/ch15-driven-resonance.webp" class="visual-anchor" style="max-height:52vh">
+
+구동 진동수가 고유 진동수에 가까워지면 작은 주기적 힘도 큰 진폭을 만들 수 있다.
+
+---
 
 ### 강제진동
 
@@ -430,9 +465,15 @@ $$x(t) = A\cos(\omega_d t + \phi')$$
 
 ---
 
-### 공명
+### 공명 곡선
 
-<img src="/img/ch15/resonance-curve.svg" style="max-height:50vh">
+<img src="/img/ch15/resonance-curve.svg" style="max-height:46vh">
+
+감쇠가 작을수록 공명 피크가 높고 날카롭다.
+
+---
+
+### 공명 조건
 
 진폭 $A$는 $\omega_d$에 의존한다. $\omega_d$가 계의 고유 진동수 $\omega_0 = \sqrt{k/m}$에 가까워지면 진폭이 급격히 증가한다.
 
@@ -440,19 +481,17 @@ $$\omega_d \approx \omega_0 \quad \Rightarrow \quad \text{진폭 최대!}$$
 
 이것이 **공명(resonance)** 이다.
 
-감쇠가 작을수록:
-- 공명 peak가 **더 높고 날카로워진다**
-- 공명 진동수에서의 진폭이 매우 커질 수 있다
+감쇠가 작을수록 공명 피크는 **더 높고 날카로워진다**.
 
 ---
 
 ### 공명의 실생활 예시
 
-- **다리의 공명** : 1940년 타코마 내로우즈 다리(Tacoma Narrows Bridge)가 바람에 의한 공명으로 붕괴
-- **건물의 내진 설계** : 지진파의 진동수가 건물의 고유 진동수와 일치하지 않도록 설계. 1985년 멕시코시티 지진에서 중층 건물이 공명으로 집중 붕괴
+- **그네** : 자연스러운 주기에 맞춰 밀면 작은 힘으로도 진폭이 커진다
+- **구조물 진동 제어** : 바람이나 지진의 주파수가 구조물의 고유 진동수 근처에 오래 머물지 않도록 설계하고, 감쇠 장치를 넣는다
+- **타코마 내로우즈 다리** : 공명 사례로 자주 소개되지만, 실제 핵심은 바람과 구조물이 결합한 공력탄성 플러터(aeroelastic flutter)였다
 - **악기** : 현의 고유 진동수에서 공명하여 소리 증폭
 - **MRI** : 자기장에서 수소 원자핵의 공명 진동을 이용
-- **전자레인지** : 물 분자의 고유 진동수(~2.45 GHz)에 맞춘 마이크로파
 
 ---
 
@@ -487,4 +526,4 @@ $$\omega_d \approx \omega_0 \quad \Rightarrow \quad \text{진폭 최대!}$$
 - SHM에서 가속도는 변위에 비례, 방향 반대: $a = -\omega^2 x$
 - 에너지는 $K$와 $U$ 사이를 교환하지만, 전체는 보존
 - 단진자 주기는 **질량과 무관** , 길이에만 의존
-- 감쇠는 진폭을 지수적으로 감소시키고, 공명은 진폭을 극대화한다
+- 감쇠는 진폭을 지수적으로 감소시키고, 공명은 구동 진동수가 맞을 때 정상상태 진폭을 크게 만든다

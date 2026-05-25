@@ -32,6 +32,15 @@ The Kinetic Theory of Gases
 
 ---
 
+
+## 기체는 무작위 운동하는 많은 분자의 집합
+
+<img src="/img/ch19/ch19-gas-molecules-chamber.webp" class="visual-anchor" style="max-height:52vh">
+
+거시적인 압력과 온도는 수많은 분자의 충돌과 평균 운동에너지에서 나온다.
+
+---
+
 ### 아보가드로 수
 
 **몰(mole)** 은 SI 기본 단위 중 하나이다. 1몰은 탄소-12의 12 g에 들어 있는 원자 수와 같다.
@@ -186,6 +195,15 @@ $$\boxed{K_\text{avg} = \frac{3}{2}kT}$$
 분자들은 매우 빠르게 움직이지만, 향수병을 열어도 냄새가 방 건너편까지 도달하는 데 시간이 걸린다. 이유는 분자들이 서로 끊임없이 **충돌** 하기 때문이다.
 
 <img src="/img/ch19/mean-free-path.svg" style="max-height:50vh">
+
+---
+
+
+### 충돌 사이의 평균 거리
+
+<img src="/img/ch19/ch19-mean-free-path.webp" class="visual-anchor" style="max-height:52vh">
+
+평균 자유 경로는 분자가 다음 충돌까지 대략 얼마나 움직이는지를 나타낸다.
 
 ---
 
@@ -402,6 +420,15 @@ $$W = \frac{p_iV_i - p_fV_f}{\gamma - 1} = nC_V(T_i - T_f)$$
 $$\boxed{P(v) = 4\pi\left(\frac{M}{2\pi RT}\right)^{3/2} v^2\, e^{-Mv^2/2RT}}$$
 
 $P(v)\,dv$ = 속력 $v \sim v+dv$ 구간에 있는 분자의 비율
+
+---
+
+
+### 모든 분자가 같은 속력으로 움직이지 않는다
+
+<img src="/img/ch19/ch19-speed-distribution.webp" class="visual-anchor" style="max-height:52vh">
+
+같은 온도에서도 분자 속력은 분포를 이루며, 온도가 높아지면 빠른 분자의 비율이 커진다.
 
 ---
 

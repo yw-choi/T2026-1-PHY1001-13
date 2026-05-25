@@ -101,6 +101,15 @@ $$\vec{F}_\text{net} = \vec{F}_1 + \vec{F}_2 + \cdots = \sum \vec{F}_i$$
 
 ---
 
+
+## 힘은 상호작용이다
+
+<img src="/img/ch05/ch05-forces-everyday.webp" class="visual-anchor" style="max-height:52vh">
+
+수직항력, 장력, 접촉력처럼 다양한 힘은 모두 물체 사이의 상호작용을 표현한다.
+
+---
+
 ## 5.3 뉴턴의 제2법칙
 
 물체에 작용하는 알짜힘은 질량과 가속도의 곱이다:
@@ -268,6 +277,15 @@ FBD 작성법:
 
 ---
 
+
+### 자유물체도는 문제의 출발점
+
+<img src="/img/ch05/ch05-free-body-lab-block.webp" class="visual-anchor" style="max-height:52vh">
+
+물체 하나를 고립시켜 작용하는 힘만 남기면 뉴턴 법칙을 바로 적용할 수 있다.
+
+---
+
 ### FBD 예시: 빗면 위의 블록
 
 <img src="/img/ch05/fbd-inclined-plane.svg" style="max-height:50vh">
@@ -310,6 +328,15 @@ $$a = g\sin\theta$$
 ## 앳우드 기계 (Atwood Machine)
 
 <img src="/img/ch05/atwood-fbd.svg" style="max-height:50vh">
+
+---
+
+
+### 연결된 물체의 대표 예
+
+<img src="/img/ch05/ch05-atwood-apparatus.webp" class="visual-anchor" style="max-height:52vh">
+
+앳우드 기계는 장력과 가속도가 두 물체의 운동을 어떻게 연결하는지 보여준다.
 
 ---
 

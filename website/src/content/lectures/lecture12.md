@@ -32,6 +32,15 @@ Equilibrium and Elasticity
 
 ---
 
+
+## 평형은 힘과 토크가 모두 0인 상태
+
+<img src="/img/ch12/ch12-equilibrium-bridge.webp" class="visual-anchor" style="max-height:52vh">
+
+구조물이 가만히 있으려면 알짜힘뿐 아니라 임의의 축에 대한 알짜토크도 사라져야 한다.
+
+---
+
 ## 12.1 평형의 조건
 
 물체가 **평형(equilibrium)** 상태에 있으려면 두 가지 조건을 만족해야 한다.
@@ -193,6 +202,15 @@ $$T = \frac{(m/2 + M)g\cos\theta}{\sin\theta} = \frac{(m/2 + M)g}{\tan\theta}$$
 
 ---
 
+
+### 접촉점이 평형을 결정한다
+
+<img src="/img/ch12/ch12-ladder-wall-realistic.webp" class="visual-anchor" style="max-height:52vh">
+
+사다리 문제에서는 바닥과 벽의 접촉력이 힘 평형과 토크 평형을 함께 만족해야 한다.
+
+---
+
 ### 사다리 문제: 풀이
 
 질량 $m$, 길이 $L$인 균일한 사다리가 마찰 없는 수직 벽에 기대어 있고, 사다리와 **바닥** 이 이루는 각도가 $\theta$이다. 바닥의 정지마찰계수는 $\mu_s$.
@@ -255,6 +273,15 @@ $$\tan\theta \geq \frac{1}{2\mu_s} \quad\Rightarrow\quad \theta \geq \arctan\!\l
 세 가지 기본 변형:
 
 <img src="/img/ch12/three-deformations.svg" style="max-height:50vh">
+
+---
+
+
+### 탄성은 변형에 대한 저항
+
+<img src="/img/ch12/ch12-stress-test.webp" class="visual-anchor" style="max-height:52vh">
+
+응력과 변형률은 재료가 외부 힘에 어떻게 반응하는지를 정량화한다.
 
 ---
 

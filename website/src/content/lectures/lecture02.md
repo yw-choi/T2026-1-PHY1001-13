@@ -36,6 +36,15 @@ Motion Along a Straight Line
 
 ---
 
+
+## 운동을 사진처럼 쪼개 보기
+
+<img src="/img/ch02/ch02-strobe-motion.webp" class="visual-anchor" style="max-height:52vh">
+
+일정한 시간 간격으로 위치를 기록하면 속도와 가속도의 차이가 눈에 보인다.
+
+---
+
 ## 2.1 위치와 변위
 
 ### 위치(Position)
@@ -77,6 +86,15 @@ $$v_\text{avg} = \frac{\Delta x}{\Delta t} = \frac{x_2 - x_1}{t_2 - t_1}$$
 <img src="/img/ch02/avg-velocity-graph.svg" style="max-height:50vh">
 
 $x$-$t$ 그래프에서 평균 속도는 두 점을 잇는 **할선(secant line)** 의 기울기다.
+
+---
+
+
+### 운동 데이터의 물리량
+
+<img src="/img/ch02/ch02-velocity-graph-context.webp" class="visual-anchor" style="max-height:52vh">
+
+위치 기록을 시간에 따라 해석하면 평균 속도, 순간 속도, 가속도가 차례로 드러난다.
 
 ---
 
@@ -251,6 +269,15 @@ $$\boxed{x - x_0 = \frac{v_0 + v}{2} \cdot t} \quad \cdots (5)$$
 - 이 가속도를 **중력가속도** 라 부르고 $g$로 표기한다
 
 $$g = 9.8 \text{ m/s}^2 \approx 10 \text{ m/s}^2$$
+
+---
+
+
+### 위로 던진 물체의 시간 간격
+
+<img src="/img/ch02/ch02-toss-up-trail.webp" class="visual-anchor" style="max-height:52vh">
+
+최고점 근처에서 위치 변화가 작아지는 것은 속도가 잠시 0에 가까워지기 때문이다.
 
 ---
 

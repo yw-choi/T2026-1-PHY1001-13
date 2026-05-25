@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Diagram Comparison — ch12</title>
+<style>
+  body { font-family: -apple-system, sans-serif; margin: 24px; background: #fafafa; color: #1a1a1a; }
+  h1 { color: #8B0029; margin-bottom: 4px; }
+  .meta { color: #6B7280; margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  th, td { padding: 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+  th { background: #8B0029; color: white; text-align: left; font-weight: 500; }
+  td.name { font-weight: 600; width: 180px; color: #8B0029; }
+  td img { max-width: 100%; max-height: 420px; border: 1px solid #e5e7eb; background: white; }
+  .missing { color: #9ca3af; font-style: italic; padding: 40px; text-align: center; border: 1px dashed #d1d5db; }
+  th.col { width: 40%; }
+</style>
+</head>
+<body>
+<h1>다이어그램 비교 — ch12</h1>
+<div class="meta">왼쪽: 원본 SVG · 오른쪽: ChatGPT 이미지 생성 결과</div>
+<table>
+  <thead>
+    <tr><th>이름</th><th class="col">Before (SVG)</th><th class="col">After (PNG)</th></tr>
+  </thead>
+  <tbody>
+        <tr>
+          <td class="name">beam-block-fbd</td>
+          <td><img src="../../website/public/img/ch12/beam-block-fbd.svg"></td>
+          <td><img src="output/ch12/beam-block-fbd.png"></td>
+        </tr>
+        <tr>
+          <td class="name">crane-boom-fbd</td>
+          <td><img src="../../website/public/img/ch12/crane-boom-fbd.svg"></td>
+          <td><img src="output/ch12/crane-boom-fbd.png"></td>
+        </tr>
+        <tr>
+          <td class="name">ladder-fbd</td>
+          <td><img src="../../website/public/img/ch12/ladder-fbd.svg"></td>
+          <td><img src="output/ch12/ladder-fbd.png"></td>
+        </tr>
+        <tr>
+          <td class="name">stability-comparison</td>
+          <td><img src="../../website/public/img/ch12/stability-comparison.svg"></td>
+          <td><img src="output/ch12/stability-comparison.png"></td>
+        </tr>
+        <tr>
+          <td class="name">stress-strain-curve</td>
+          <td><img src="../../website/public/img/ch12/stress-strain-curve.svg"></td>
+          <td><img src="output/ch12/stress-strain-curve.png"></td>
+        </tr>
+        <tr>
+          <td class="name">three-deformations</td>
+          <td><img src="../../website/public/img/ch12/three-deformations.svg"></td>
+          <td><img src="output/ch12/three-deformations.png"></td>
+        </tr>
+  </tbody>
+</table>
+</body>
+</html>

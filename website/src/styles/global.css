@@ -63,8 +63,22 @@
 
 .slide-content img {
   max-height: 60vh;
+  max-width: 100%;
   margin: 0 auto;
   display: block;
+}
+
+.slide-content img.visual-anchor,
+.slide-content img[src$=".png"],
+.slide-content img[src$=".webp"],
+.slide-content img[src*=".png?"],
+.slide-content img[src*=".webp?"] {
+  width: min(100%, 960px);
+  height: auto;
+  max-height: 56vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
 }
 
 .slide-content blockquote {

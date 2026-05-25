@@ -225,13 +225,6 @@ export const simulations: Simulation[] = [
     description: '단면적과 높이가 변하는 관에서 이상 유체의 흐름을 시각화합니다. 연속 방정식 $A_1 v_1 = A_2 v_2$와 베르누이 방정식 $p + \\tfrac{1}{2}\\rho v^2 + \\rho g y = \\text{const}$를 실시간으로 검증합니다.',
   },
   {
-    id: 'shm-spring',
-    file: 'shm-spring.html',
-    title: '용수철-질량 SHM',
-    chapter: 15,
-    description: '용수철-질량 계에서 $x(t) = x_m\\cos(\\omega t)$, $\\omega = \\sqrt{k/m}$을 시각화합니다. 위상 공간(v vs x), 에너지 바 차트($K + U = E$), $x(t)$ 그래프를 실시간으로 관찰하고 감쇠 효과도 확인할 수 있습니다.',
-  },
-  {
     id: 'oscillation-shm',
     file: 'oscillation-shm.html',
     title: '단순조화운동',

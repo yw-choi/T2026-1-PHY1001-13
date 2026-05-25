@@ -36,6 +36,15 @@ Force and Motion II
 
 ---
 
+
+## 마찰은 접촉면에서 결정된다
+
+<img src="/img/ch06/ch06-friction-surfaces.webp" class="visual-anchor" style="max-height:52vh">
+
+마찰력은 물체의 재질과 표면 상태에 의존하며, 운동을 방해하는 방향으로 작용한다.
+
+---
+
 ### 정지 마찰력 (Static Friction)
 
 물체에 힘을 가해도 움직이지 않는다면, **정지 마찰력** 이 가해진 힘과 크기가 같고 방향이 반대다.
@@ -156,6 +165,15 @@ $$D = \frac{1}{2}C\rho A v^2$$
 - $v$: 유체에 대한 물체의 속력
 
 > 이 공식은 비교적 빠르게 움직이는 물체(높은 레이놀즈 수)에 적용된다.
+
+---
+
+
+### 종단 속력의 힘 균형
+
+<img src="/img/ch06/ch06-terminal-velocity.webp" class="visual-anchor" style="max-height:52vh">
+
+낙하 중 항력이 커져 무게와 같아지면 더 이상 속력이 증가하지 않는다.
 
 ---
 
@@ -293,6 +311,15 @@ $$v \geq \sqrt{gR}$$
 도로의 커브 구간을 기울여서(banking) 마찰력 없이도 원운동이 가능하게 만들 수 있다.
 
 <img src="/img/ch06/banked-curve.svg" style="max-height:50vh">
+
+---
+
+
+### 경사 곡선과 구심력
+
+<img src="/img/ch06/ch06-banked-curve-road.webp" class="visual-anchor" style="max-height:52vh">
+
+도로를 안쪽으로 기울이면 수직항력의 수평 성분이 원운동에 필요한 구심력을 제공한다.
 
 ---
 

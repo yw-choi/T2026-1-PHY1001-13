@@ -36,6 +36,15 @@ Waves. II
 
 ---
 
+
+## 소리는 압력 교란이다
+
+<img src="/img/ch17/ch17-sound-pressure-speaker.webp" class="visual-anchor" style="max-height:52vh">
+
+음파에서는 공기 분자의 변위와 압력의 압축·팽창이 함께 전파된다.
+
+---
+
 ### 음속 공식
 
 16장에서 횡파의 속력이 $v = \sqrt{\tau/\mu}$ (탄성적 성질/관성적 성질)임을 배웠다. 종파에서도 같은 구조:
@@ -426,6 +435,15 @@ $$f_\text{beat} = |f_1 - f_2| = 3 \text{ Hz}$$
 
 ---
 
+
+### 움직이는 음원은 파면 간격을 바꾼다
+
+<img src="/img/ch17/ch17-doppler-vehicle.webp" class="visual-anchor" style="max-height:52vh">
+
+음원이 다가오면 앞쪽 파장이 짧아지고, 멀어지면 뒤쪽 파장이 길어진다.
+
+---
+
 ### 도플러 효과 일반 공식
 
 $$f' = f \frac{v \pm v_O}{v \mp v_S}$$
@@ -502,6 +520,15 @@ $$f' = 1000 \times \frac{343}{343 + 30} = 1000 \times \frac{343}{373} = 920 \tex
 음원이 음속보다 빠르면, 음파의 파면을 앞지른다. 이때 발생하는 것이 **충격파(shock wave)** 다.
 
 <img src="/img/ch17/mach-cone.svg" style="max-height:50vh">
+
+---
+
+
+### 초음속에서는 파면이 원뿔로 쌓인다
+
+<img src="/img/ch17/ch17-supersonic-cone.webp" class="visual-anchor" style="max-height:52vh">
+
+음원 속력이 음속보다 크면 구면파들이 겹쳐 마하 원뿔을 만든다.
 
 ---
 

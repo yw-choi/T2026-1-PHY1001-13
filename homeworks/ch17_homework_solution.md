@@ -72,7 +72,7 @@ $$\Delta L = |L_2 - L_1| = |4.95 - 4.20| = \boxed{0.75\;\text{m}}$$
 
 $$\frac{\Delta L}{\lambda} = \frac{0.75}{0.50} = 1.5$$
 
-$\Delta L / \lambda = 1.5$는 상쇄 간섭 조건 $0.5, 1.5, 2.5, \ldots$에 해당하므로, $\boxed{\text{완전한 상쇄 간섭(fully destructive interference)}}$ 이 일어난다. 점 $P$에서 두 파동은 정확히 반파장 차이로 도착하여 서로 상쇄된다.
+$\Delta L / \lambda = 1.5$는 상쇄 간섭 조건 $0.5, 1.5, 2.5, \ldots$에 해당하므로, $\boxed{\text{상쇄 간섭(destructive interference)}}$ 이 일어난다. 점 $P$에서 두 파동이 정확히 반파장 위상차로 도착해 서로 상쇄되며, 두 파동의 진폭이 같다고 이상화하면 합성 진폭은 0이 된다(점음원 가정에서는 $1/r$ 감쇠로 진폭이 약 15% 차이나므로 실제로는 거의 완전 상쇄에 해당).
 
 **(c)** $\lambda' = 0.60\;\text{m}$이면:
 

@@ -186,6 +186,15 @@ $$y = y_0 + v_{0y}t + \frac{1}{2}a_y t^2$$
 
 ---
 
+
+## 포물체 운동의 궤적
+
+<img src="/img/ch04/ch04-projectile-sports.webp" class="visual-anchor" style="max-height:52vh">
+
+공기 저항을 무시하면 수평 운동과 수직 운동이 결합되어 포물선 궤적을 만든다.
+
+---
+
 ### 수평·수직 독립을 이해하기
 
 동시에 두 공을 놓는다고 상상해 보자:
@@ -331,6 +340,15 @@ $$R = \frac{v_0^2\sin 2\theta_0}{g} = \frac{(25)^2\sin 60°}{9.8} = \frac{625 \t
 
 ---
 
+
+### 원운동의 두 방향
+
+<img src="/img/ch04/ch04-circular-motion.webp" class="visual-anchor" style="max-height:52vh">
+
+속도는 접선 방향이지만 가속도는 원의 중심을 향한다.
+
+---
+
 ### 구심가속도 (Centripetal Acceleration)
 
 등속 원운동하는 입자의 가속도:
@@ -432,6 +450,15 @@ $$\frac{a}{g} = \frac{29.5}{9.8} = 3.0g$$
 - KTX 안에서 통로를 걷는 승객
   - 다른 승객이 보면: 걷는 속도 (약 1 m/s)
   - 지면의 관측자가 보면: KTX 속도 + 걷는 속도 (약 301 m/s)
+
+---
+
+
+### 기준틀을 바꾸면 보이는 운동도 바뀐다
+
+<img src="/img/ch04/ch04-relative-motion-river.webp" class="visual-anchor" style="max-height:52vh">
+
+배의 운동은 물에 대한 속도와 강물의 속도가 벡터로 더해진 결과이다.
 
 ---
 
